@@ -1,4 +1,5 @@
 class EntriesController < ApplicationController
+  respond_to :html, :js
 
   def index
     if params[:tag]
@@ -14,13 +15,9 @@ class EntriesController < ApplicationController
   end
 
   def create
-    @entry = Entry.new(entry_params)
-    respond_to do |format|
-      if @entry.save
-        format.js
-      else
-        format.html { render root_path }
-      end
+    @entry = Entry.create!(entry_params)
+    respond_with do |format|
+      format.html { redirect_to root_path }
     end
   end
 
