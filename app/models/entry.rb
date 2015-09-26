@@ -4,7 +4,8 @@ class Entry < ActiveRecord::Base
   has_many :tags, through: :taggings
 
   def self.tagged_with(topic)
-    Tag.find_by(topic: topic).entries
+    tags = Tag.find_by(topic: topic) || Tag.new(topic: topic)
+    tags.entries
   end
 
   def all_tags=(topics)

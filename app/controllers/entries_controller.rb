@@ -3,6 +3,7 @@ class EntriesController < ApplicationController
   def index
     if params[:tag]
       @entries = Entry.tagged_with(params[:tag])
+      flash[:notice] = "Sorry, there are no tags for that topic" if @entries.blank?
     else
       @entries = Entry.all
     end
