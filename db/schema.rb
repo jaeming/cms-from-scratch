@@ -25,12 +25,12 @@ ActiveRecord::Schema.define(version: 20150926104000) do
     t.string   "author"
     t.string   "status"
     t.string   "feature_image"
-    t.integer  "content_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "content_type_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
-  add_index "entries", ["content_id"], name: "index_entries_on_content_id"
+  add_index "entries", ["content_type_id"], name: "index_entries_on_content_type_id"
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "entry_id"

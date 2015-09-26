@@ -4,7 +4,7 @@ class Entry < ActiveRecord::Base
   has_many :tags, through: :taggings
 
   def all_tags=(topics)
-    self.tags = topics.split(",").map do |topic|
+    self.tags = topics.downcase.split(/[\s,]+/).map do |topic|
         Tag.where(topic: topic.strip).first_or_create!
     end
   end
