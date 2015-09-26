@@ -2,5 +2,5 @@
   h2 = entry.title
   p = entry.body
 .tags
-  = raw entry.all_tags
+  = raw tag_links(entry.all_tags)
 small = "Created #{time_ago_in_words(entry.created_at)} ago"  

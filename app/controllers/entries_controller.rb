@@ -1,7 +1,11 @@
 class EntriesController < ApplicationController
 
   def index
-    @entries = Entry.all
+    if params[:tag]
+      @entries = Entry.tagged_with(params[:tag])
+    else
+      @entries = Entry.all
+    end
   end
 
   def show

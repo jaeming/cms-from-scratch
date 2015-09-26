@@ -3,6 +3,10 @@ class Entry < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
+  def self.tagged_with(topic)
+    Tag.find_by(topic: topic).entries
+  end
+
   def all_tags=(topics)
     self.tags = topics.downcase.split(/[\s,]+/).map do |topic|
         Tag.where(topic: topic.strip).first_or_create!
