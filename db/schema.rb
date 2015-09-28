@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150927141738) do
+ActiveRecord::Schema.define(version: 20150928130013) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -42,6 +42,17 @@ ActiveRecord::Schema.define(version: 20150927141738) do
   end
 
   add_index "entries", ["content_type_id"], name: "index_entries_on_content_type_id"
+
+  create_table "settings", force: :cascade do |t|
+    t.boolean  "comments_approval"
+    t.boolean  "comments_only_registered"
+    t.boolean  "new_user_signups"
+    t.string   "site_title"
+    t.text     "site_description"
+    t.string   "timezone"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "entry_id"
