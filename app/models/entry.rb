@@ -1,5 +1,6 @@
 class Entry < ActiveRecord::Base
   belongs_to :content_type
+  has_many :images
   has_many :comments
   has_many :taggings
   has_many :tags, through: :taggings
