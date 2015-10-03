@@ -1,4 +1,5 @@
-#new_entry
-  = render partial: "entries/new"
+-if signed_in?
+  #new_entry
+    = render partial: "entries/new"
 #entries
   = render partial: @entries.reverse

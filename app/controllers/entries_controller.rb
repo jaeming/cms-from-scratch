@@ -1,4 +1,5 @@
 class EntriesController < ApplicationController
+  before_action :require_login, except: [:show, :index]
   respond_to :html, :js
 
   def index
