@@ -1,8 +1,12 @@
 source 'https://rubygems.org'
 
 gem 'slim-rails'
+gem 'haml-rails'
 gem 'responders'
 gem 'clearance'
+gem 'tinymce-rails'
+gem 'el_finder', '1.1.12'
+gem 'mini_magick'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
@@ -18,6 +22,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
