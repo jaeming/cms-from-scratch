@@ -7,6 +7,7 @@ gem 'clearance'
 gem 'tinymce-rails'
 gem 'el_finder', '1.1.12'
 gem 'mini_magick'
+gem 'materialize-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
