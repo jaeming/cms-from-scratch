@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'entries#index', as: "tag",
     :constraints => lambda { |request| request.params[:tag]}
 
+  resources :admin_dashboard
+
   root to: 'pages#index'
 
 end
