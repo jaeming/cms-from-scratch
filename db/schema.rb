@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151003121711) do
+ActiveRecord::Schema.define(version: 20151006110005) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -67,6 +67,15 @@ ActiveRecord::Schema.define(version: 20151003121711) do
   end
 
   add_index "images", ["entry_id"], name: "index_images_on_entry_id"
+
+  create_table "navigations", force: :cascade do |t|
+    t.string   "link"
+    t.string   "title"
+    t.integer  "order"
+    t.boolean  "new_tab"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "settings", force: :cascade do |t|
     t.boolean  "comments_approval"
