@@ -1,0 +1,5 @@
+= form_for(@entry) do |f|
+  = f.label :title
+  = f.text_field :title
+  = f.hidden_field :content_type_id, :value => @content.id
+  = f.submit

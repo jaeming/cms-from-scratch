@@ -1,0 +1,8 @@
+.sidebar = render partial: 'sidebar'
+.admin-show
+  h3 = @content.kind.pluralize.capitalize
+  hr/
+  - @content.entries.each do |entry|
+    p = entry.title
+  hr/
+  = link_to "New #{@content.kind.capitalize}", new_admin_path(@content)

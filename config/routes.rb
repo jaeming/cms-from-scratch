@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'pages/index'
-
   #clearance routes start
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
@@ -18,13 +16,13 @@ Rails.application.routes.draw do
   get '/elfinder_manager', to: 'elfinder#index'
   match 'elfinder' => 'elfinder#elfinder', via: [:get, :post]
 
-  get 'settings/update'
   resources :entries
   resources :tags, only: :index
+  resources :admin
   get 'tags/:tag', to: 'entries#index', as: "tag",
     :constraints => lambda { |request| request.params[:tag]}
-
-  resources :admin_dashboard
+  get 'settings/update'
+  get 'pages/index'
 
   root to: 'pages#index'
 
