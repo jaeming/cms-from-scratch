@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  #elfinder/tinymce
+  get '/elfinder_manager', to: 'elfinder#index'
+  match 'elfinder' => 'elfinder#elfinder', via: [:get, :post]
+
   #clearance routes start
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
@@ -13,17 +17,13 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   #clearance routes end
 
-  get '/elfinder_manager', to: 'elfinder#index'
-  match 'elfinder' => 'elfinder#elfinder', via: [:get, :post]
-
   resources :entries
   resources :tags, only: :index
-  resources :admin
   get 'tags/:tag', to: 'entries#index', as: "tag",
-    :constraints => lambda { |request| request.params[:tag]}
+  :constraints => lambda { |request| request.params[:tag]}
   get 'settings/update'
-  get 'pages/index'
 
+  get 'pages/index'
   root to: 'pages#index'
 
 end
