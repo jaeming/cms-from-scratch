@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151006110504) do
+ActiveRecord::Schema.define(version: 20151130012113) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -40,24 +40,15 @@ ActiveRecord::Schema.define(version: 20151006110504) do
 
   add_index "comments", ["entry_id"], name: "index_comments_on_entry_id"
 
-  create_table "content_types", force: :cascade do |t|
-    t.string   "kind"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "entries", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
     t.string   "author"
     t.string   "status"
     t.string   "feature_image"
-    t.integer  "content_type_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
-
-  add_index "entries", ["content_type_id"], name: "index_entries_on_content_type_id"
 
   create_table "images", force: :cascade do |t|
     t.string   "file"
