@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def authorize_admin
-    permission_denied unless current_user && current_user.role == "admin"
+    return permission_denied unless current_user && current_user.role == "admin"
   end
 
   def permission_denied

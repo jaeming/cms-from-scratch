@@ -1,7 +1,14 @@
 class SettingsController < ApplicationController
-  def update
+
+  def show
+    authorize_admin
     @setting = Setting.first_or_create!
-    @setting.update!(setting_params) if user.admin == 'true' #ToDo: make user persmissions...and users...
+  end
+
+  def update
+    authorize_admin
+    @setting = Setting.first_or_create!
+    @setting.update!(setting_params)
   end
 
   private
