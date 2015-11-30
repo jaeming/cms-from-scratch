@@ -19,9 +19,10 @@ Rails.application.routes.draw do
 
   resources :entries
   resources :tags, only: :index
+  resources :settings, only: [:index, :show, :create]
+
   get 'tags/:tag', to: 'entries#index', as: "tag",
   :constraints => lambda { |request| request.params[:tag]}
-  get 'settings/update'
 
   get 'home/index'
   root to: 'home#index'
