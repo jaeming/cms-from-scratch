@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151130012113) do
+ActiveRecord::Schema.define(version: 20151130022805) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -24,10 +24,12 @@ ActiveRecord::Schema.define(version: 20151130012113) do
     t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "pages_id"
   end
 
   add_index "categorizations", ["category_id"], name: "index_categorizations_on_category_id"
   add_index "categorizations", ["entry_id"], name: "index_categorizations_on_entry_id"
+  add_index "categorizations", ["pages_id"], name: "index_categorizations_on_pages_id"
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -36,9 +38,11 @@ ActiveRecord::Schema.define(version: 20151130012113) do
     t.integer  "entry_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "pages_id"
   end
 
   add_index "comments", ["entry_id"], name: "index_comments_on_entry_id"
+  add_index "comments", ["pages_id"], name: "index_comments_on_pages_id"
 
   create_table "entries", force: :cascade do |t|
     t.string   "title"
@@ -55,15 +59,25 @@ ActiveRecord::Schema.define(version: 20151130012113) do
     t.integer  "entry_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "pages_id"
   end
 
   add_index "images", ["entry_id"], name: "index_images_on_entry_id"
+  add_index "images", ["pages_id"], name: "index_images_on_pages_id"
 
   create_table "navigations", force: :cascade do |t|
     t.string   "link"
     t.string   "title"
     t.integer  "order"
     t.boolean  "new_tab"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.text     "keywords"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -84,9 +98,11 @@ ActiveRecord::Schema.define(version: 20151130012113) do
     t.integer  "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "pages_id"
   end
 
   add_index "taggings", ["entry_id"], name: "index_taggings_on_entry_id"
+  add_index "taggings", ["pages_id"], name: "index_taggings_on_pages_id"
   add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
 
   create_table "tags", force: :cascade do |t|
