@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   :constraints => lambda { |request| request.params[:tag]}
   get 'settings/update'
 
-  get 'pages/index'
-  root to: 'pages#index'
+  get 'home/index'
+  root to: 'home#index'
 
 end
