@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :pages
   #elfinder/tinymce
   get '/elfinder_manager', to: 'elfinder#index'
   match 'elfinder' => 'elfinder#elfinder', via: [:get, :post]
