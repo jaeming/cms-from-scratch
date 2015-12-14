@@ -18,12 +18,9 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   #clearance routes end
 
-  resources :entries
+  resources :blog_posts
   resources :tags, only: [:index, :show]
   resources :settings, only: [:index, :show, :update]
-
-  # get 'tags/:tag', to: 'entries#index', as: "tag",
-  # :constraints => lambda { |request| request.params[:tag]}
 
   get 'home/index'
   root to: 'home#index'

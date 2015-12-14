@@ -13,38 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20151130022805) do
 
-  create_table "categories", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "categorizations", force: :cascade do |t|
-    t.integer  "entry_id"
-    t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "page_id"
-  end
-
-  add_index "categorizations", ["category_id"], name: "index_categorizations_on_category_id"
-  add_index "categorizations", ["entry_id"], name: "index_categorizations_on_entry_id"
-  add_index "categorizations", ["page_id"], name: "index_categorizations_on_page_id"
-
-  create_table "comments", force: :cascade do |t|
-    t.text     "body"
-    t.string   "author"
-    t.string   "status"
-    t.integer  "entry_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "page_id"
-  end
-
-  add_index "comments", ["entry_id"], name: "index_comments_on_entry_id"
-  add_index "comments", ["page_id"], name: "index_comments_on_page_id"
-
-  create_table "entries", force: :cascade do |t|
+  create_table "blog_posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
     t.string   "author"
@@ -54,15 +23,46 @@ ActiveRecord::Schema.define(version: 20151130022805) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "images", force: :cascade do |t|
-    t.string   "file"
-    t.integer  "entry_id"
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "categorizations", force: :cascade do |t|
+    t.integer  "blog_post_id"
+    t.integer  "category_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "page_id"
   end
 
-  add_index "images", ["entry_id"], name: "index_images_on_entry_id"
+  add_index "categorizations", ["blog_post_id"], name: "index_categorizations_on_blog_post_id"
+  add_index "categorizations", ["category_id"], name: "index_categorizations_on_category_id"
+  add_index "categorizations", ["page_id"], name: "index_categorizations_on_page_id"
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "body"
+    t.string   "author"
+    t.string   "status"
+    t.integer  "blog_post_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "page_id"
+  end
+
+  add_index "comments", ["blog_post_id"], name: "index_comments_on_blog_post_id"
+  add_index "comments", ["page_id"], name: "index_comments_on_page_id"
+
+  create_table "images", force: :cascade do |t|
+    t.string   "file"
+    t.integer  "blog_post_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "page_id"
+  end
+
+  add_index "images", ["blog_post_id"], name: "index_images_on_blog_post_id"
   add_index "images", ["page_id"], name: "index_images_on_page_id"
 
   create_table "navigations", force: :cascade do |t|
@@ -93,14 +93,14 @@ ActiveRecord::Schema.define(version: 20151130022805) do
   end
 
   create_table "taggings", force: :cascade do |t|
-    t.integer  "entry_id"
+    t.integer  "blog_post_id"
     t.integer  "tag_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "page_id"
   end
 
-  add_index "taggings", ["entry_id"], name: "index_taggings_on_entry_id"
+  add_index "taggings", ["blog_post_id"], name: "index_taggings_on_blog_post_id"
   add_index "taggings", ["page_id"], name: "index_taggings_on_page_id"
   add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
 

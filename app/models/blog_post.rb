@@ -1,4 +1,4 @@
-class Entry < ActiveRecord::Base
+class BlogPost < ActiveRecord::Base
   has_many :images
   has_many :comments
   has_many :taggings
@@ -8,7 +8,7 @@ class Entry < ActiveRecord::Base
 
   def self.tagged_with(topic)
     tags = Tag.find_by(topic: topic) || Tag.new(topic: topic)
-    tags.entries
+    tags.blog_posts
   end
 
   def all_tags=(topics)
