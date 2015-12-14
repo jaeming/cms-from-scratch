@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :entries
   resources :tags, only: :index
-  resources :settings, only: [:index, :show, :create]
+  resources :settings, only: [:index, :show, :update]
 
   get 'tags/:tag', to: 'entries#index', as: "tag",
   :constraints => lambda { |request| request.params[:tag]}
