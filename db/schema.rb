@@ -24,12 +24,12 @@ ActiveRecord::Schema.define(version: 20151130022805) do
     t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "pages_id"
+    t.integer  "page_id"
   end
 
   add_index "categorizations", ["category_id"], name: "index_categorizations_on_category_id"
   add_index "categorizations", ["entry_id"], name: "index_categorizations_on_entry_id"
-  add_index "categorizations", ["pages_id"], name: "index_categorizations_on_pages_id"
+  add_index "categorizations", ["page_id"], name: "index_categorizations_on_page_id"
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -38,11 +38,11 @@ ActiveRecord::Schema.define(version: 20151130022805) do
     t.integer  "entry_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "pages_id"
+    t.integer  "page_id"
   end
 
   add_index "comments", ["entry_id"], name: "index_comments_on_entry_id"
-  add_index "comments", ["pages_id"], name: "index_comments_on_pages_id"
+  add_index "comments", ["page_id"], name: "index_comments_on_page_id"
 
   create_table "entries", force: :cascade do |t|
     t.string   "title"
@@ -59,11 +59,11 @@ ActiveRecord::Schema.define(version: 20151130022805) do
     t.integer  "entry_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "pages_id"
+    t.integer  "page_id"
   end
 
   add_index "images", ["entry_id"], name: "index_images_on_entry_id"
-  add_index "images", ["pages_id"], name: "index_images_on_pages_id"
+  add_index "images", ["page_id"], name: "index_images_on_page_id"
 
   create_table "navigations", force: :cascade do |t|
     t.string   "link"
@@ -77,7 +77,6 @@ ActiveRecord::Schema.define(version: 20151130022805) do
   create_table "pages", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
-    t.text     "keywords"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -98,11 +97,11 @@ ActiveRecord::Schema.define(version: 20151130022805) do
     t.integer  "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "pages_id"
+    t.integer  "page_id"
   end
 
   add_index "taggings", ["entry_id"], name: "index_taggings_on_entry_id"
-  add_index "taggings", ["pages_id"], name: "index_taggings_on_pages_id"
+  add_index "taggings", ["page_id"], name: "index_taggings_on_page_id"
   add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
 
   create_table "tags", force: :cascade do |t|

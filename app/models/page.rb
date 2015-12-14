@@ -8,7 +8,7 @@ class Page < ActiveRecord::Base
 
   def self.tagged_with(topic)
     tags = Tag.find_by(topic: topic) || Tag.new(topic: topic)
-    tags.entries
+    tags.pages
   end
 
   def all_tags=(topics)

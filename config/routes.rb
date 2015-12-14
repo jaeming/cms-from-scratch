@@ -19,11 +19,11 @@ Rails.application.routes.draw do
   #clearance routes end
 
   resources :entries
-  resources :tags, only: :index
+  resources :tags, only: [:index, :show]
   resources :settings, only: [:index, :show, :update]
 
-  get 'tags/:tag', to: 'entries#index', as: "tag",
-  :constraints => lambda { |request| request.params[:tag]}
+  # get 'tags/:tag', to: 'entries#index', as: "tag",
+  # :constraints => lambda { |request| request.params[:tag]}
 
   get 'home/index'
   root to: 'home#index'

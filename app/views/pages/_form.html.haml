@@ -13,7 +13,7 @@
     = f.label :body
     = f.text_area :body
   .field
-    = f.label :keywords
-    = f.text_area :keywords
+    = f.label 'tags'
+    = f.text_field :all_tags, placeholder: "Tags"
   .actions
     = f.submit 'Save'

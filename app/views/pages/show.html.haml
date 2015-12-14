@@ -7,8 +7,8 @@
   %b Body:
   = @page.body
 %p
-  %b Keywords:
-  = @page.keywords
+  %b tags:
+  = raw tag_links(@page.all_tags)  
 
 = link_to 'Edit', edit_page_path(@page)
 \|

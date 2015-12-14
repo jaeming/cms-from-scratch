@@ -1,8 +1,8 @@
 class AddReferencesToPages < ActiveRecord::Migration
   def change
-    add_reference :categorizations, :pages, index: true
-    add_reference :taggings, :pages, index: true
-    add_reference :comments, :pages, index: true
-    add_reference :images, :pages, index: true
+    add_reference :categorizations, :page, index: true
+    add_reference :taggings, :page, index: true
+    add_reference :comments, :page, index: true
+    add_reference :images, :page, index: true
   end
 end

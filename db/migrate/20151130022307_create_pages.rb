@@ -3,7 +3,6 @@ class CreatePages < ActiveRecord::Migration
     create_table :pages do |t|
       t.string :title
       t.text :body
-      t.text :keywords
 
       t.timestamps null: false
     end
