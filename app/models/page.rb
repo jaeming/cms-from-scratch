@@ -3,8 +3,6 @@ class Page < ActiveRecord::Base
   has_many :comments
   has_many :taggings
   has_many :tags, through: :taggings
-  has_many :categorizations
-  has_many :categories, through: :categorizations
 
   def self.tagged_with(topic)
     tags = Tag.find_by(topic: topic) || Tag.new(topic: topic)

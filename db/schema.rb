@@ -23,24 +23,6 @@ ActiveRecord::Schema.define(version: 20151130022805) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "categorizations", force: :cascade do |t|
-    t.integer  "blog_post_id"
-    t.integer  "category_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "page_id"
-  end
-
-  add_index "categorizations", ["blog_post_id"], name: "index_categorizations_on_blog_post_id"
-  add_index "categorizations", ["category_id"], name: "index_categorizations_on_category_id"
-  add_index "categorizations", ["page_id"], name: "index_categorizations_on_page_id"
-
   create_table "comments", force: :cascade do |t|
     t.text     "body"
     t.string   "author"
