@@ -2,9 +2,6 @@ Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
   resources :pages
-  #elfinder/tinymce
-  get '/elfinder_manager', to: 'elfinder#index'
-  match 'elfinder' => 'elfinder#elfinder', via: [:get, :post]
 
   #clearance routes start
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
@@ -24,6 +21,6 @@ Rails.application.routes.draw do
   resources :settings, only: [:index, :show, :update]
 
   get 'home/index'
-  root to: 'home#index'
+  root to: 'pages#index'
 
 end
