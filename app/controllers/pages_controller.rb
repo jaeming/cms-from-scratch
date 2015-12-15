@@ -27,6 +27,7 @@ class PagesController < ApplicationController
   def update
     if @page.update(page_params)
       flash[:notice] = "Page Updated"
+      redirect_to page_url
     end
   end
 

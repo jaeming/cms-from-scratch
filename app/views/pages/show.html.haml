@@ -13,3 +13,13 @@
 = link_to 'Edit', edit_page_path(@page)
 \|
 = link_to 'Back', pages_path
+:javascript
+    var images = $('img')
+    images.map( function(index) {
+      if ($(images[index]).css('float') === 'left') {
+        $(images[index]).addClass('image-left')
+      }
+      if ($(images[index]).css('float') === 'right') {
+        $(images[index]).addClass('image-right')
+      }
+    });
