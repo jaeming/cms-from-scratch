@@ -14,8 +14,8 @@
     - @pages.each do |page|
       %tr
         %td= page.title
-        %td= page.body
-        %td= raw tag_links(page.all_tags)  
+        %td= truncate_html(raw(page.body), length: 150, omission: '...(continued)')
+        %td= raw tag_links(page.all_tags)
         %td= link_to 'Show', page
         %td= link_to 'Edit', edit_page_path(page)
         %td= link_to 'Destroy', page, :method => :delete, :data => { :confirm => 'Are you sure?' }

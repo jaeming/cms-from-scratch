@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
   resources :pages
   #elfinder/tinymce
   get '/elfinder_manager', to: 'elfinder#index'

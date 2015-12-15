@@ -5,10 +5,10 @@
   = @page.title
 %p
   %b Body:
-  = @page.body
+  = raw @page.body
 %p
   %b tags:
-  = raw tag_links(@page.all_tags)  
+  = raw tag_links(@page.all_tags)
 
 = link_to 'Edit', edit_page_path(@page)
 \|
