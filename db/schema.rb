@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151218121615) do
+ActiveRecord::Schema.define(version: 20151218122305) do
 
   create_table "blog_posts", force: :cascade do |t|
     t.string   "title"
@@ -39,19 +39,6 @@ ActiveRecord::Schema.define(version: 20151218121615) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
-  create_table "comments", force: :cascade do |t|
-    t.text     "body"
-    t.string   "author"
-    t.string   "status"
-    t.integer  "blog_post_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "page_id"
-  end
-
-  add_index "comments", ["blog_post_id"], name: "index_comments_on_blog_post_id"
-  add_index "comments", ["page_id"], name: "index_comments_on_page_id"
-
   create_table "navigations", force: :cascade do |t|
     t.string   "link"
     t.string   "title"
@@ -69,14 +56,12 @@ ActiveRecord::Schema.define(version: 20151218121615) do
   end
 
   create_table "settings", force: :cascade do |t|
-    t.boolean  "comments_approval"
-    t.boolean  "comments_only_registered"
     t.boolean  "new_user_signups"
     t.string   "site_title"
     t.text     "site_description"
     t.string   "timezone"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "taggings", force: :cascade do |t|
