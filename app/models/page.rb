@@ -3,6 +3,7 @@ class Page < ActiveRecord::Base
   has_many :tags, through: :taggings
 
   default_scope { order('id DESC') }
+  scope :published, -> { where(published: true) }
 
   def self.tagged_with(topic)
     tags = Tag.find_by(topic: topic) || Tag.new(topic: topic)
