@@ -4,6 +4,7 @@ class Page < ActiveRecord::Base
 
   default_scope { order('id DESC') }
   scope :published, -> { where(published: true) }
+  scope :drafts, -> { where(published: false) }  
 
   def self.tagged_with(topic)
     tags = Tag.find_by(topic: topic) || Tag.new(topic: topic)
