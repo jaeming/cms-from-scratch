@@ -1,9 +1,19 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'faker'
+
+4.times do 
+  Page.create(
+              title: Faker::Name.title,
+              body: Faker::Hipster.paragraph(2),
+              published: true
+  )
+  Page.create(
+              title: Faker::Name.title,
+              body: Faker::Hipster.paragraph(1),
+              published: false
+  )
+end
+
+pages = Page.all
 admin = User.create!(email: "admin@admin.com", password: "secret", role: "admin")
 puts "A default admin was created with email: #{admin.email} and password: #{admin.password}"
+puts "#{pages.count} Pages were created"

@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby "2.2.3"
 gem 'slim-rails'
 gem 'haml-rails'
+gem 'faker'
 gem 'responders'
 gem 'clearance'
 gem 'carrierwave'
