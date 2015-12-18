@@ -1,0 +1,23 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @page.title
+%p
+  %b Body:
+  = raw @page.body
+%p
+  %b tags:
+  = raw tag_links(@page.all_tags)
+
+= link_to 'Edit', edit_page_path(@page)
+:javascript
+    var images = $('img')
+    images.map( function(index) {
+      if ($(images[index]).css('float') === 'left') {
+        $(images[index]).addClass('image-left')
+      }
+      if ($(images[index]).css('float') === 'right') {
+        $(images[index]).addClass('image-right')
+      }
+    });

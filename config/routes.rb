@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
-  resources :pages
+
 
   #clearance routes start
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
@@ -16,9 +16,16 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   #clearance routes end
 
+  namespace :admin do
+    resources :blog_posts
+    resources :pages
+    root to: "pages#index"
+  end
+
   resources :blog_posts
   resources :tags, only: [:index, :show]
   resources :settings, only: [:index, :show, :update]
+  resources :pages, only: [:index, :show]
 
   get 'home/index'
   root to: 'pages#index'

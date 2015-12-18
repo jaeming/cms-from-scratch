@@ -4,6 +4,8 @@ class Page < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
+  default_scope { order('id DESC') }
+
   def self.tagged_with(topic)
     tags = Tag.find_by(topic: topic) || Tag.new(topic: topic)
     tags.pages
