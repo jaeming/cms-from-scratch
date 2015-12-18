@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151218122305) do
+ActiveRecord::Schema.define(version: 20151218122929) do
 
   create_table "blog_posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
     t.string   "author"
-    t.string   "status"
     t.string   "feature_image"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.boolean  "published"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20151218122305) do
     t.text     "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "published"
   end
 
   create_table "settings", force: :cascade do |t|
