@@ -12,8 +12,9 @@ class Admin::BlogPostsController < ApplicationController
 
   def create
     @blog_post = BlogPost.create!(blog_params)
+    flash[:notice] = "Blog Post Created"
     respond_with do |format|
-      format.html { redirect_to root_path }
+      format.html { redirect_to admin_blog_posts_url }
     end
   end
 
@@ -22,9 +23,18 @@ class Admin::BlogPostsController < ApplicationController
     @blog_post.update!(blog_params)
   end
 
+  def update
+    if @page.update(page_params)
+      flash[:notice] = "Blog Post Updated"
+      redirect_to admin_blog_posts_url
+    end
+  end
+
   def destroy
     @blog_post = BlogPost.find(params[:id])
     @blog_post.destroy!
+    flash[:notice] = "Blog Post Deleted"    
+    redirect_to admin_blog_posts_url
   end
 
   private
