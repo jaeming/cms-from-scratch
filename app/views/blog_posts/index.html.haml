@@ -1,0 +1,12 @@
+%h2 blog
+- @blog_posts.each do |blog_post|
+  %h2
+    = blog_post.title
+  %p
+    = raw blog_post.body
+  .tags
+    = raw tag_links(blog_post.all_tags)
+  %small
+    = "Created #{time_ago_in_words(blog_post.created_at)} ago"
+  %p
+    = link_to 'Show', blog_post_path(blog_post)    

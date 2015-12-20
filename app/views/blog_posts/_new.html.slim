@@ -1,8 +1,0 @@
-= form_for(BlogPost.new, remote: true, :authenticity_token => true) do |f|
-  = f.text_field :title, placeholder: "Title"
-  br
-  = f.text_area :body
-  br
-  = f.text_field :all_tags, placeholder: "Tags"
-  br
-  = f.submit

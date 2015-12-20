@@ -1,6 +1,0 @@
-h2 blog
--if signed_in?
-  #new_entry
-    = render partial: "blog_posts/new"
-#entries
-  = render partial: @blog_posts.reverse

@@ -1,6 +1,0 @@
-= div_for blog_post do
-  h2 = blog_post.title
-  p = blog_post.body
-.tags
-  = raw tag_links(blog_post.all_tags)
-small = "Created #{time_ago_in_words(blog_post.created_at)} ago"  
