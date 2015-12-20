@@ -1,0 +1,3 @@
+var new_entry = $("<%= escape_javascript(render(partial: @blog_post))%>").fadeIn('slow');
+$('#entries').prepend(new_entry);
+$('#new_entry form')[0].reset();

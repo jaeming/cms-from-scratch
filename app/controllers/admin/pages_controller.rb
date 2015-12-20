@@ -1,5 +1,5 @@
 class Admin::PagesController < ApplicationController
-  before_action :authorize_admin, only: [:create, :update, :edit, :destroy]
+  before_action :authorize_admin
   before_action :set_page, only: [:show, :edit, :update, :destroy]
 
   def index
