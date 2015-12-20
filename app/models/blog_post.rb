@@ -2,6 +2,10 @@ class BlogPost < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
+  default_scope { order('id DESC') }
+  scope :published, -> { where(published: true) }
+  scope :drafts, -> { where(published: false) }
+
   def self.tagged_with(topic)
     tags = Tag.find_by(topic: topic) || Tag.new(topic: topic)
     tags.blog_posts
