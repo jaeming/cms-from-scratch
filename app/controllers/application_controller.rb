@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
   end
 
   def permission_denied
-    render :file => "public/401.html", :status => :unauthorized
+    redirect_to sign_in_url
+    # render :file => "public/401.html", :status => :unauthorized
   end
 
 end
