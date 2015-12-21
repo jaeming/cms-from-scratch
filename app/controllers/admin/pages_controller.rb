@@ -1,4 +1,4 @@
-class Admin::PagesController < ApplicationController
+class Admin::PagesController < Admin::DashboardController 
   before_action :authorize_admin
   before_action :set_page, only: [:show, :edit, :update, :destroy]
 

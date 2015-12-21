@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+
   mount Ckeditor::Engine => '/ckeditor'
 
 
@@ -19,7 +21,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :blog_posts
     resources :pages
-    root to: "pages#index"
+    get 'dashboard/index'
+    root to: "dashboard#index"
   end
 
   resources :blog_posts
@@ -28,6 +31,6 @@ Rails.application.routes.draw do
   resources :pages, only: [:index, :show]
 
   get 'home/index'
-  root to: 'pages#index'
+  root to: 'home#index'
 
 end

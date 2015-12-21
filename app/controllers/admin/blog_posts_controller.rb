@@ -1,4 +1,4 @@
-class Admin::BlogPostsController < ApplicationController
+class Admin::BlogPostsController < Admin::DashboardController 
   before_action :authorize_admin
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
 

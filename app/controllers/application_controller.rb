@@ -5,12 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def authorize_admin
-    return permission_denied unless current_user && current_user.role == "admin"
-  end
-
-  def permission_denied
-    redirect_to sign_in_url
-    # render :file => "public/401.html", :status => :unauthorized
+    return redirect_to sign_in_url unless current_user && current_user.role == "admin"
   end
 
 end
