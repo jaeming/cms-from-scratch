@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151218122929) do
+ActiveRecord::Schema.define(version: 20151222124111) do
 
   create_table "blog_posts", force: :cascade do |t|
     t.string   "title"
@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(version: 20151218122929) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
+  create_table "galleries", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "navigations", force: :cascade do |t|
     t.string   "link"
     t.string   "title"
@@ -55,6 +62,18 @@ ActiveRecord::Schema.define(version: 20151218122929) do
     t.datetime "updated_at", null: false
     t.boolean  "published"
   end
+
+  create_table "photo_posts", force: :cascade do |t|
+    t.string   "image"
+    t.string   "description"
+    t.string   "title"
+    t.boolean  "published"
+    t.integer  "gallery_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "photo_posts", ["gallery_id"], name: "index_photo_posts_on_gallery_id"
 
   create_table "settings", force: :cascade do |t|
     t.boolean  "new_user_signups"

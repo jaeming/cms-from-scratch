@@ -1,0 +1,29 @@
+%h1 Listing photo_posts
+
+%table
+  %thead
+    %tr
+      %th Image
+      %th Description
+      %th Title
+      %th Published
+      %th References
+      %th
+      %th
+      %th
+
+  %tbody
+    - @photo_posts.each do |photo_post|
+      %tr
+        %td= photo_post.image
+        %td= photo_post.description
+        %td= photo_post.title
+        %td= photo_post.published
+        %td= photo_post.references
+        %td= link_to 'Show', photo_post
+        %td= link_to 'Edit', edit_photo_post_path(photo_post)
+        %td= link_to 'Destroy', photo_post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Photo post', new_photo_post_path

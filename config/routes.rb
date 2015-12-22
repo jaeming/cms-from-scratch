@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
 
+  resources :photo_posts
+  resources :galleries
   mount Ckeditor::Engine => '/ckeditor'
 
 
