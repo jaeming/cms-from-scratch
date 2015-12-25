@@ -18,16 +18,19 @@ class Admin::GalleriesController < ApplicationController
 
   def create
     @gallery = Gallery.create!(gallery_params)
+    flash[:notice] = "Gallery Created"
     redirect_to admin_galleries_url
   end
 
   def update
     @gallery.update!(gallery_params)
+    flash[:notice] = "Gallery Updated"
     redirect_to admin_galleries_url
   end
 
   def destroy
     @gallery.destroy!
+    flash[:notice] = "Gallery Destroyed"
     redirect_to admin_galleries_url
   end
 
