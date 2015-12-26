@@ -5,4 +5,8 @@ class Gallery < ActiveRecord::Base
     self.photo_posts
   end
 
+  def as_json(options=nil)
+    super(options || {only: [:id, :title], include: {photos: {only: [:id, :image]}}})
+  end
+
 end
