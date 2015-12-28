@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   #clearance routes start
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
-  resource :session, controller: "clearance/sessions", only: [:create]
-  resources :users, controller: "clearance/users", only: [:create] do
+  resource :session, controller: "clearance/sessions", only: :create
+  resources :users, controller: "clearance/users", only: :create do
     resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :pages
     resources :galleries
     resources :photo_posts
-    resource :users, only: [:show, :update]        
+    resource :users, only: [:show, :update]
     get 'dashboard/index'
     root to: "dashboard#index"
   end
