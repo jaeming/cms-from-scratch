@@ -6,7 +6,7 @@ class GalleriesController < ApplicationController
 
   def show
     @gallery = Gallery.find(params[:id])
-    render json: @gallery.as_json
+    render json: @gallery
   end
 
 end

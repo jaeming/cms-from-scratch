@@ -6,7 +6,7 @@ class Gallery < ActiveRecord::Base
   end
 
   def as_json(options=nil)
-    super(options || {only: [:id, :title], include: {photos: {only: [:id, :image]}}})
+    super({only: [:id, :title], include: {photos: {only: [:id, :image]}}}.merge(options))
   end
 
 end
