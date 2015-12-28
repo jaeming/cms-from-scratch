@@ -23,6 +23,6 @@ class Admin::UsersController < ApplicationController
     end
 
 		def user_params
-			require(:user).permit(:name, :avatar)
+			params.require(:user).permit(:name, :avatar)
 		end
 end

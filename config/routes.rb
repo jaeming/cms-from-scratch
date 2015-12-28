@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :pages
     resources :galleries
     resources :photo_posts
-    resources :users, only: [:index, :show, :update]
+    resources :users, only: [:index, :show, :edit, :update]
     get 'dashboard/index'
     root to: "dashboard#index"
   end
