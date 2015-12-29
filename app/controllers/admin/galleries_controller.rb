@@ -1,5 +1,5 @@
-class Admin::GalleriesController < ApplicationController
-  before_action :authorize_admin
+class Admin::GalleriesController < Admin::DashboardController
+  before_action :authorize_user
   before_action :set_gallery, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -10,14 +10,14 @@ class Admin::GalleriesController < ApplicationController
   end
 
   def new
-    @gallery = Gallery.new
+    @gallery = current_user.galleries.new
   end
 
   def edit
   end
 
   def create
-    @gallery = Gallery.create!(gallery_params)
+    @gallery = current_user.galleries.create!(gallery_params)
     flash[:notice] = "Gallery Created"
     redirect_to admin_galleries_url
   end

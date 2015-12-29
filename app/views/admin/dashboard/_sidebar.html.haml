@@ -1,2 +1,15 @@
-%h4 I should be a sidebar
-=link_to 'pages', admin_pages_path  
+.sidebar
+  .sidebar-user
+  = image_tag current_user.avatar.thumb, class: 'user-avatar'
+  %br
+  = link_to 'Profile Settings', admin_user_path(current_user)
+  = link_to 'Site Settings', "#"
+  = link_to 'Sign Out', sign_out_path, method: :delete, data: { confirm: 'Are you sure?' }
+  %hr
+  .sidebar-nav
+    = link_to (fa_icon "pause-circle", text: 'Dashboard'), admin_root_path
+    = link_to 'Pages', admin_pages_path
+    = link_to 'Blog', admin_blog_posts_path
+    = link_to 'Galleries', admin_galleries_path
+    = link_to 'Users', admin_users_path
+    = link_to 'Tags', "#"

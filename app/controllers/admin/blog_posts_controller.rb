@@ -1,5 +1,5 @@
-class Admin::BlogPostsController < Admin::DashboardController 
-  before_action :authorize_admin
+class Admin::BlogPostsController < Admin::DashboardController
+  before_action :authorize_user
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -10,11 +10,11 @@ class Admin::BlogPostsController < Admin::DashboardController
   end
 
   def new
-    @blog_post = BlogPost.new
+    @blog_post = current_user.blog_posts.new
   end
 
   def create
-    @blog_post = BlogPost.create!(blog_params)
+    @blog_post = current_user.blog_posts.create!(blog_params)
     flash[:notice] = "Blog Post Created"
     redirect_to admin_blog_posts_url
   end

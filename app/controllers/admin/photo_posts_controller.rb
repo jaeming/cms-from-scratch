@@ -1,5 +1,5 @@
-class Admin::PhotoPostsController < ApplicationController
-  before_action :authorize_admin
+class Admin::PhotoPostsController < Admin::DashboardController
+  before_action :authorize_user
   before_action :set_photo_post, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -10,14 +10,14 @@ class Admin::PhotoPostsController < ApplicationController
   end
 
   def new
-    @photo_post = PhotoPost.new
+    @photo_post = current_user.photo_posts.new
   end
 
   def edit
   end
 
   def create
-    @photo_post = PhotoPost.create!(photo_post_params)
+    @photo_post = current_user.photo_posts.create!(photo_post_params)
     flash[:notice] = "Photo Post Created"
     redirect_to admin_photo_posts_url
   end
@@ -30,7 +30,7 @@ class Admin::PhotoPostsController < ApplicationController
 
   def destroy
     @photo_post.destroy!
-    flash[:notice] = "Photo Post Destroyed"      
+    flash[:notice] = "Photo Post Destroyed"
     redirect_to admin_photo_posts_url
   end
 

@@ -24,13 +24,13 @@ Rails.application.routes.draw do
     resources :galleries
     resources :photo_posts
     resources :users, only: [:index, :show, :edit, :update]
+    resources :settings, only: [:index, :show, :update]
     get 'dashboard/index'
     root to: "dashboard#index"
   end
 
   resources :blog_posts
   resources :tags, only: [:index, :show]
-  resources :settings, only: [:index, :show, :update]
   resources :pages, only: [:index, :show]
 
   get 'home/index'

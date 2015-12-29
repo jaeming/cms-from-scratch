@@ -1,4 +1,4 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < Admin::DashboardController
   before_action :set_user, only: [:show, :edit, :update]
   before_action :authorize_admin
 

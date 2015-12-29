@@ -7,7 +7,7 @@
     = raw blog_post.body
   %p
     = link_to 'Edit', edit_admin_blog_post_path(blog_post)
-    = link_to 'Show', admin_blog_post_path(blog_post)
+    = link_to 'Show', blog_post_path(blog_post), target: "_blank"
     = link_to 'Destroy', [:admin, blog_post], :method => :delete, :data => { :confirm => 'Are you sure?' }
   .tags
     = raw tag_links(blog_post.all_tags)

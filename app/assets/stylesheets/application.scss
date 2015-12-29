@@ -14,7 +14,8 @@
  *= require_tree .
  *= require_self
  */
- @import "materialize";
+ // @import "materialize";
+@import "font-awesome";
 
 .header {
   margin-top: 1rem;
@@ -29,4 +30,7 @@
   border-right: .3rem solid #7C7C7C;
   background: #DCDCDC;
   float: left;
+  a {
+    display: block;
+  }
 }
