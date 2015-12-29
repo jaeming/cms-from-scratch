@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151228115228) do
+ActiveRecord::Schema.define(version: 20151229014631) do
 
   create_table "blog_posts", force: :cascade do |t|
     t.string   "title"
@@ -21,7 +21,10 @@ ActiveRecord::Schema.define(version: 20151228115228) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.boolean  "published"
+    t.integer  "user_id"
   end
+
+  add_index "blog_posts", ["user_id"], name: "index_blog_posts_on_user_id"
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -44,7 +47,10 @@ ActiveRecord::Schema.define(version: 20151228115228) do
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
+
+  add_index "galleries", ["user_id"], name: "index_galleries_on_user_id"
 
   create_table "navigations", force: :cascade do |t|
     t.string   "link"
@@ -71,9 +77,11 @@ ActiveRecord::Schema.define(version: 20151228115228) do
     t.integer  "gallery_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
 
   add_index "photo_posts", ["gallery_id"], name: "index_photo_posts_on_gallery_id"
+  add_index "photo_posts", ["user_id"], name: "index_photo_posts_on_user_id"
 
   create_table "settings", force: :cascade do |t|
     t.boolean  "new_user_signups"

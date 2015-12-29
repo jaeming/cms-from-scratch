@@ -1,4 +1,9 @@
 class PhotoPost < ActiveRecord::Base
   belongs_to :gallery
-  mount_uploader :image, ImageUploader  
+  belongs_to :user
+  mount_uploader :image, ImageUploader
+
+  def author
+    self.user
+  end
 end
