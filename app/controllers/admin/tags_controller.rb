@@ -1,4 +1,4 @@
-class Admin::TagsController < ApplicationController
+class Admin::TagsController < Admin::DashboardController
   before_action :authorize_user
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
 
