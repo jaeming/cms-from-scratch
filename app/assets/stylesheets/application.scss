@@ -14,23 +14,26 @@
  *= require_tree .
  *= require_self
  */
- // @import "materialize";
+
+@import "reset";
 @import "font-awesome";
+@import 'jeet';
+@import 'breakpoint';
 
-.header {
-  margin-top: 1rem;
-}
-
-.admin-show {
-  float: left;
-}
 .sidebar {
-  min-width: 200px;
-  min-height: 500px;
+  width: 13rem;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
   border-right: .3rem solid #7C7C7C;
   background: #DCDCDC;
-  float: left;
   a {
     display: block;
   }
+}
+
+.admin-content {
+  margin-left: 15rem;
+  padding: 1rem;
 }

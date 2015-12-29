@@ -7,11 +7,12 @@ gem 'responders'
 gem 'clearance'
 gem 'carrierwave'
 gem 'mini_magick'
-# gem 'materialize-sass'
 gem 'ckeditor'
 gem 'truncate_html'
 gem 'thin'
 gem "font-awesome-rails"
+gem 'jeet', :git => 'https://github.com/jaeming/jeet-rails.git'
+gem 'breakpoint'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'

@@ -11,4 +11,4 @@
     = link_to 'Destroy', [:admin, blog_post], :method => :delete, :data => { :confirm => 'Are you sure?' }
   .tags
     = raw tag_links(blog_post.all_tags)
-    %small = "Created #{time_ago_in_words(blog_post.created_at)} ago"
+    %small "Created #{time_ago_in_words(blog_post.created_at)} ago"
