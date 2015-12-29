@@ -1,0 +1,9 @@
+- @gallery.photos.each do |photo|
+  = image_tag photo.image.thumb
+  %br
+  %hr
+  %small
+    %br
+    = photo.title
+    = link_to 'Edit', edit_admin_photo_post_path(photo)
+    = link_to 'Destroy', [:admin, photo], :method => :delete, :data => { :confirm => 'Are you sure?' }

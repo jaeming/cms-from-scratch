@@ -1,5 +1,3 @@
-= gallery.title
-= gallery.description
-%hr
-- gallery.photos.each do |photo|
-  = image_tag photo.image
+= link_to gallery.title, admin_gallery_path(gallery)
+= link_to 'Modify', admin_gallery_path(gallery)
+%br
