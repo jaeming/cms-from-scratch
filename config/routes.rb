@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :photo_posts
-  resources :galleries
-
   mount Ckeditor::Engine => '/ckeditor'
 
   #clearance routes start
@@ -23,13 +20,16 @@ Rails.application.routes.draw do
     resources :pages
     resources :galleries
     resources :photo_posts
-    resources :users, only: [:index, :show, :edit, :update]
+    resources :tags
+    resources :users
     resources :settings, only: [:index, :show, :update]
     get 'dashboard/index'
     root to: "dashboard#index"
   end
 
-  resources :blog_posts
+  resources :photo_posts, only: [:index, :show]
+  resources :galleries, only: [:index, :show]
+  resources :blog_posts, only: [:index, :show]
   resources :tags, only: [:index, :show]
   resources :pages, only: [:index, :show]
 
