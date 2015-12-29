@@ -1,6 +1,5 @@
-- @galleries.each do |gallery|
-  = gallery.title
-  = gallery.description
-  %hr
-  - gallery.photos.each do |photo|
-    = image_tag photo.image
+= gallery.title
+= gallery.description
+%hr
+- gallery.photos.each do |photo|
+  = image_tag photo.image
