@@ -1,15 +1,14 @@
 .sidebar
   .sidebar-user
-  = image_tag current_user.avatar.thumb, class: 'user-avatar'
-  %br
-  = link_to 'Profile Settings', admin_user_path(current_user)
-  = link_to 'Site Settings', "#"
-  = link_to 'Sign Out', sign_out_path, method: :delete, data: { confirm: 'Are you sure?' }
-  %hr
+    .sidebar-user-image
+      = image_tag current_user.avatar.thumb, class: 'user-avatar'
+    = link_to (fa_icon "user", text: 'Profile Settings'), admin_user_path(current_user)
+    = link_to (fa_icon "wrench", text: 'Site Settings'), "#"
+    = link_to (fa_icon "sign-out", text: 'Sign Out'), sign_out_path, method: :delete, data: { confirm: 'Are you sure?' }
   .sidebar-nav
-    = link_to (fa_icon "pause-circle", text: 'Dashboard'), admin_root_path
-    = link_to 'Pages', admin_pages_path
-    = link_to 'Blog', admin_blog_posts_path
-    = link_to 'Galleries', admin_galleries_path
-    = link_to 'Users', admin_users_path
-    = link_to 'Tags', admin_tags_path
+    = link_to (fa_icon "tachometer", text: 'Dashboard'), admin_root_path
+    = link_to (fa_icon "file-o", text: 'Pages'), admin_pages_path
+    = link_to (fa_icon "book", text: 'Blog'), admin_blog_posts_path
+    = link_to (fa_icon "file-image-o", text: 'Galleries'), admin_galleries_path
+    = link_to (fa_icon "user-plus", text: 'Users'), admin_users_path
+    = link_to (fa_icon "tags", text: 'Tags'), admin_tags_path
