@@ -1,20 +1,3 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require jquery-ui
- *= require_tree .
- *= require_self
- */
-
 @import "reset";
 @import "font-awesome";
 @import 'jeet';
@@ -31,58 +14,5 @@ $color-highlight: #50D2A0;
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,900);
 $font-general: 'Roboto', sans-serif;
 
-//ADMIN AREA - SIDEBAR
-
-.sidebar {
-  font-family: $font-general;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  width: 15rem;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  border-right: .3rem solid #7C7C7C;
-  background: $color-medium;
-  a {
-    display: block;
-    text-decoration: none;
-    color: #fff;
-    padding: 1rem;
-    transition: ease 250ms;
-    &:hover {
-      background-color: $color-highlight;
-    }
-  }
-  .fa {
-    font-size: 1.5rem;
-    padding-right: 1rem;
-  }
-}
-
-.sidebar-user {
-  background: $color-dark;
-}
-
-.sidebar-user-image {
-  text-align: center;
-  padding: 1rem;
-}
-
-.user-avatar {
-  width: 5rem;
-  border: solid 3px #fff;
-  border-radius: 100%;
-  padding: 3px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.sidebar-nav {
-  background: $color-medium;
-}
-
-.admin-content {
-  margin-left: 15rem;
-  padding: 1rem;
-}
+//ADMIN DASHBOARD
+@import 'dashboard';

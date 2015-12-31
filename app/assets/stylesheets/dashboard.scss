@@ -1,3 +1,53 @@
-// Place all the styles related to the dashboard controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.sidebar {
+  font-family: $font-general;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  width: 15rem;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-right: .3rem solid #7C7C7C;
+  background: $color-medium;
+  a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 1rem;
+    transition: ease 250ms;
+    &:hover {
+      background-color: $color-highlight;
+    }
+  }
+  .fa {
+    font-size: 1.5rem;
+    padding-right: 1rem;
+  }
+}
+
+.sidebar-user {
+  background: $color-dark;
+}
+
+.sidebar-user-image {
+  text-align: center;
+  padding: 1rem;
+}
+
+.user-avatar {
+  width: 5rem;
+  border: solid 3px #fff;
+  border-radius: 100%;
+  padding: 3px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sidebar-nav {
+  background: $color-medium;
+}
+
+.admin-content {
+  margin-left: 15rem;
+  padding: 1rem;
+}
