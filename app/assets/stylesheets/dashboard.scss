@@ -1,19 +1,17 @@
 .sidebar {
   font-family: $font-general;
   font-size: 1.1rem;
-  text-transform: uppercase;
-  width: 15rem;
+  width: 17rem;
   height: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  border-right: .3rem solid #7C7C7C;
-  background: $color-medium;
+  border-right: .125rem solid #aaa;
+  background: #fff;
   a {
     display: block;
     text-decoration: none;
-    color: #fff;
-    padding: 1rem;
+    padding: 1rem 1rem 1rem 2rem;
     transition: ease 250ms;
     &:hover {
       background-color: $color-highlight;
@@ -22,11 +20,17 @@
   .fa {
     font-size: 1.5rem;
     padding-right: 1rem;
+    width: 1.5rem;
   }
 }
 
 .sidebar-user {
-  background: $color-dark;
+  background: $color-medium;
+  box-shadow: 0px 7px 10px #888888;
+  outline: .125rem solid $color-medium;
+  a {
+    color: #fff;
+  }
 }
 
 .sidebar-user-image {
@@ -44,10 +48,13 @@
 }
 
 .sidebar-nav {
-  background: $color-medium;
+  margin-top: 7px;
+  a {
+    color: #000;
+  }
 }
 
 .admin-content {
-  margin-left: 15rem;
+  margin-left: 17rem;
   padding: 1rem;
 }
