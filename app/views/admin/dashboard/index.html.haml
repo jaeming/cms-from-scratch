@@ -1,4 +1,71 @@
-%h2 dashboard
-%p
-  Hello
-  = current_user.name || current_user.email
+.admin-container
+  %h2.admin-title
+    = fa_icon "tachometer", text: 'Dashboard'
+  %p
+    Hello
+    = succeed '!' do
+      %strong= current_user.name.capitalize || current_user.email
+  .main-dashboard-row
+    .columns-3
+      = link_to admin_pages_path, class: "main-dashboard-card main-dashboard-card--blue-centered main-dashboard-card--animate-up" do
+        .main-dashboard-card__front
+          %i.main-dashboard-card__icon.fa.fa-file-o
+          .main-dashboard-card__data Pages
+        / /.main-dashboard-card__front
+        .main-dashboard-card__back
+          .main-dashboard-card__action
+            Edit
+          / /.main-dashboard-card__action
+        / /.main-dashboard-card__back
+      / /.main-dashboard-card main-dashboard-card--blue-centered
+    .columns-3
+      = link_to admin_blog_posts_path, class: "main-dashboard-card main-dashboard-card--blue-centered main-dashboard-card--animate-up" do
+        .main-dashboard-card__front
+          %i.main-dashboard-card__icon.fa.fa-book
+          .main-dashboard-card__data Blog
+        / /.main-dashboard-card__front
+        .main-dashboard-card__back
+          .main-dashboard-card__action
+            Edit
+          / /.main-dashboard-card__action
+        / /.main-dashboard-card__back
+      / /.main-dashboard-card main-dashboard-card--blue-centered
+    .columns-3
+      = link_to admin_galleries_path, class: "main-dashboard-card main-dashboard-card--blue-centered main-dashboard-card--animate-up" do
+        .main-dashboard-card__front
+          %i.main-dashboard-card__icon.fa.fa-file-image-o
+          .main-dashboard-card__data Galleries
+        / /.main-dashboard-card__front
+        .main-dashboard-card__back
+          .main-dashboard-card__action
+            Edit
+          / /.main-dashboard-card__action
+        / /.main-dashboard-card__back
+      / /.main-dashboard-card main-dashboard-card--blue-centered
+  %br
+  .main-dashboard-row
+    .columns-3
+      = link_to admin_users_path, class: "main-dashboard-card main-dashboard-card--blue-centered main-dashboard-card--animate-up" do
+        .main-dashboard-card__front
+          %i.main-dashboard-card__icon.fa.fa-user-plus
+          .main-dashboard-card__data Users
+        / /.main-dashboard-card__front
+        .main-dashboard-card__back
+          .main-dashboard-card__action
+            Manage
+          / /.main-dashboard-card__action
+        / /.main-dashboard-card__back
+      / /.main-dashboard-card main-dashboard-card--blue-centered
+    .columns-3
+      = link_to admin_tags_path, class: "main-dashboard-card main-dashboard-card--blue-centered main-dashboard-card--animate-up" do
+        .main-dashboard-card__front
+          %i.main-dashboard-card__icon.fa.fa-tags
+          .main-dashboard-card__data Tags
+        / /.main-dashboard-card__front
+        .main-dashboard-card__back
+          .main-dashboard-card__action
+            Edit
+          / /.main-dashboard-card__action
+        / /.main-dashboard-card__back
+      / /.main-dashboard-card main-dashboard-card--blue-centered
+  / /.main-dashboard-card-wrap
