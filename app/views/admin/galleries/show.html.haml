@@ -2,7 +2,7 @@
   = @gallery.title
 %small
   = @gallery.description
-  = link_to 'Add Photos', new_admin_photo_post_path  
+  = link_to 'Add Photos', new_admin_gallery_photo_post_path(@gallery) 
   = link_to 'Edit Title/Description', edit_admin_gallery_path(@gallery)
   = link_to 'Destroy Gallery', [:admin, @gallery], :method => :delete, :data => { :confirm => 'Are you sure?' }
   %hr

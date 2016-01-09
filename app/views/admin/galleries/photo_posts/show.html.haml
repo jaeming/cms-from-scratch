@@ -1,0 +1,19 @@
+%p#notice= notice
+
+%p
+  %b Image:
+  = image_tag @photo_post.image
+%p
+  %b Description:
+  = @photo_post.description
+%p
+  %b Title:
+  = @photo_post.title
+%p
+  %b Published:
+  = @photo_post.published
+
+= link_to 'Edit', edit_admin_gallery_photo_post_path(@gallery, @photo_post)
+= link_to 'Destroy', [:admin, @gallery, @photo_post], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+= link_to 'Back', admin_gallery_path(@gallery)
