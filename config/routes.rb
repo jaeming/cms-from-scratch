@@ -18,8 +18,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :blog_posts
     resources :pages
-    resources :galleries
-    resources :photo_posts
+    resources :galleries do
+      resources :photo_posts, controller: 'galleries/photo_posts'
+    end
     resources :tags
     resources :users
     resources :settings, only: [:index, :show, :update]
@@ -27,8 +28,9 @@ Rails.application.routes.draw do
     root to: "dashboard#index"
   end
 
-  resources :photo_posts, only: [:index, :show]
-  resources :galleries, only: [:index, :show]
+  resources :galleries, only: [:index, :show] do
+    resources :photo_posts, only: [:show], controller: 'galleries/photo_posts'
+  end
   resources :blog_posts, only: [:index, :show]
   resources :tags, only: [:index, :show]
   resources :pages, only: [:index, :show]
