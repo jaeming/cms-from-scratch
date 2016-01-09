@@ -13,7 +13,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  border-right: .125rem solid #aaa;
+  // border-right: .125rem solid #aaa;
   background: #fff;
   a {
     display: block;
@@ -34,7 +34,7 @@
 .sidebar-user {
   background: $color-blue;
   box-shadow: 0px 7px 10px rgba($color-black, 0.5);
-  outline: .125rem solid $color-blue;
+  // outline: .125rem solid $color-blue;
   a {
     color: #fff;
   }
@@ -64,6 +64,10 @@
 .admin-content {
   margin-left: 17rem;
   padding: 1rem;
+}
+
+.admin-active {
+  background: #eeeded;
 }
 
 //MAIN DASHBOARD

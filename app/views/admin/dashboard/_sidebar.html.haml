@@ -2,14 +2,18 @@
   .sidebar-date
   .sidebar-user
     .sidebar-user-image
-      = image_tag current_user.avatar.thumb, class: 'user-avatar'
+      = image_tag current_user.profile_avatar, class: 'user-avatar'
     = link_to (fa_icon "user", text: 'Profile Settings'), admin_user_path(current_user)
     = link_to (fa_icon "wrench", text: 'Site Settings'), "#"
     = link_to (fa_icon "sign-out", text: 'Sign Out'), sign_out_path, method: :delete, data: { confirm: 'Are you sure?' }
   .sidebar-nav
-    = link_to (fa_icon "tachometer", text: 'Dashboard'), admin_root_path
-    = link_to (fa_icon "file-o", text: 'Pages'), admin_pages_path
-    = link_to (fa_icon "book", text: 'Blog'), admin_blog_posts_path
-    = link_to (fa_icon "file-image-o", text: 'Galleries'), admin_galleries_path
-    = link_to (fa_icon "user-plus", text: 'Users'), admin_users_path
-    = link_to (fa_icon "tags", text: 'Tags'), admin_tags_path
+    = link_to (fa_icon "tachometer", text: 'Dashboard'), admin_root_path, class: "admin-nav-dashboard"
+    = link_to (fa_icon "file-o", text: 'Pages'), admin_pages_path, class: "admin-nav-pages"
+    = link_to (fa_icon "book", text: 'Blog'), admin_blog_posts_path, class: "admin-nav-blog_posts"
+    = link_to (fa_icon "file-image-o", text: 'Galleries'), admin_galleries_path, class: "admin-nav-galleries"
+    = link_to (fa_icon "user-plus", text: 'Users'), admin_users_path, class: "admin-nav-users"
+    = link_to (fa_icon "tags", text: 'Tags'), admin_tags_path, class: "admin-nav-tags"
+:JavaScript
+  var url = location.pathname.split('/')[2] || 'dashboard';
+  $('.admin-active').removeClass('admin-active');
+  $('.admin-nav-'+url).addClass('admin-active');
