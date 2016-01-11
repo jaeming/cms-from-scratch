@@ -13,7 +13,6 @@
     = link_to (fa_icon "file-image-o", text: 'Galleries'), admin_galleries_path, class: "admin-nav-galleries"
     = link_to (fa_icon "user-plus", text: 'Users'), admin_users_path, class: "admin-nav-users"
     = link_to (fa_icon "tags", text: 'Tags'), admin_tags_path, class: "admin-nav-tags"
-:JavaScript
-  var url = location.pathname.split('/')[2] || 'dashboard';
-  $('.admin-active').removeClass('admin-active');
-  $('.admin-nav-'+url).addClass('admin-active');
+:javascript
+  var url = location.pathname.split('/')[2] || "dashboard";
+  $('.admin-nav-'+url).addClass('admin-nav-active');

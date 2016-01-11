@@ -1,5 +1,7 @@
 //SIDEBAR
-
+.admin-nav-active {
+  background: #eeeded;
+}
 .admin-content {
   background: #eeeded;
   height: 100vh;
@@ -66,9 +68,7 @@
   padding: 1rem;
 }
 
-.admin-active {
-  background: #eeeded;
-}
+
 
 //MAIN DASHBOARD
 
