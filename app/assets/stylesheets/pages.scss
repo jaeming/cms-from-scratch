@@ -41,10 +41,11 @@
     background-color: lighten(#E74C3C, 30%);
   }
   &__large {
-    width: 120px;
+    width: auto;
     height: 32px;
     font-size: 0.9rem;
     line-height: 32px;
+    padding: 0 10px;
   }
   &__round {
     border-radius: 25px;
@@ -110,10 +111,10 @@
   }
   a {
     text-decoration: none;
-    color: lighten(#5f6062, 25%);
+    color: lighten(#5f6062, 0%);
     transition: ease 250ms;
     &:hover{
-      color: #5f6062;
+      color: $color-highlight;
     }
   }
 }

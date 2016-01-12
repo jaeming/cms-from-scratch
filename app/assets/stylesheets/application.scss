@@ -49,6 +49,10 @@ strong {
   }
 }
 
+#flash {
+  display: none;
+}
+
 //ADMIN
 @import 'dashboard';
 @import 'pages';
