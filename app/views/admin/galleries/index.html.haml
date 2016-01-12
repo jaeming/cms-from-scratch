@@ -1,6 +1,6 @@
 .admin-container
   %h2.admin-title
     = fa_icon "file-image-o", text: 'Galleries'
-  = link_to 'New Gallery', new_admin_gallery_path
+    = link_to 'New Gallery', new_admin_gallery_path, class: "admin-button admin-button__blue admin-button__large admin-button__new-page"
   %br
   = render @galleries
