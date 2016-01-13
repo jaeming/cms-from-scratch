@@ -29,6 +29,8 @@ strong {
   font-weight: 700;
 }
 
+
+
 //COLUMNS
 
 .columns-2 {
@@ -56,3 +58,7 @@ strong {
 //ADMIN
 @import 'dashboard';
 @import 'pages';
+
+.admin-table-center {
+  text-align: center !important;
+}

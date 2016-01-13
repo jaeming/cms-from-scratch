@@ -6,4 +6,8 @@ class PhotoPost < ActiveRecord::Base
   def author
     self.user
   end
+
+  def featured?
+    false
+  end
 end

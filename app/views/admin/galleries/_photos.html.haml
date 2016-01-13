@@ -1,10 +1,14 @@
-- @gallery.photos.each do |photo|
-  = image_tag photo.image.thumb
-  %br
-  %hr
-  %small
-    %br
-    = photo.title
-    = link_to 'show', admin_gallery_photo_post_path(@gallery, photo)    
-    = link_to 'Edit', edit_admin_gallery_photo_post_path(@gallery, photo)
-    = link_to 'Destroy', [:admin, @gallery, photo], :method => :delete, :data => { :confirm => 'Are you sure?' }
+%tbody
+  - @gallery.photos.each do |photo|
+    %tr
+      %td= image_tag photo.image.thumb
+      %td= photo.title
+      %td= photo.description
+      %td.admin-table-center= link_to (fa_icon "eye"), admin_gallery_photo_post_path(@gallery, photo), class: 'admin-table-icon'
+      %td.admin-table-center= link_to (fa_icon "pencil"), edit_admin_gallery_photo_post_path(@gallery, photo), class: 'admin-table-icon'
+      %td.admin-table-center= link_to (fa_icon "trash-o"), [:admin, @gallery, photo], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'admin-table-icon'
+      %td.admin-table-center
+        -if photo.featured?
+          =(fa_icon "check-square-o")
+        -else
+          =(fa_icon "square-o")

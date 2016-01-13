@@ -78,6 +78,18 @@
   font-size: 3rem;
   padding: 0 0 3rem 0;
   color: darken($color-grey, 20%);
+  &__small {
+    @extend .admin-title;
+    font-size: 2rem;
+    a {
+      text-decoration: none;
+      color: #617988;
+      transition: ease 250ms all;
+      &:hover {
+        color: $color-highlight;
+      }
+    }
+  }
 }
 
 //MAIN DASHBOARD CARDS

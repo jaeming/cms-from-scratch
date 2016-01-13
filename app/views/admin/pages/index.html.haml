@@ -1,16 +1,16 @@
 .admin-container
   %h2.admin-title
     = fa_icon "file-o", text: 'Pages'
-    = link_to 'New Page', new_admin_page_path, class: "admin-button admin-button__blue admin-button__large admin-button__new-page"
+    = link_to 'New Page', new_admin_page_path, class: "admin-button__new"
   %table.admin-table
     %thead
       %tr
         %th Title
         %th Author
         %th Tags
-        %th Show
-        %th Edit
-        %th Delete
+        %th.admin-table-center Show
+        %th.admin-table-center Edit
+        %th.admin-table-center Delete
 
     %tbody
       - @pages.each do |page|
@@ -18,8 +18,8 @@
           %td= page.title
           %td= 'add Author name'
           %td= raw tag_links(page.all_tags)
-          %td= link_to (fa_icon "eye"),  page_path(page), target: '_blank', class: 'admin-table-icon'
-          %td= link_to (fa_icon "pencil"), edit_admin_page_path(page), class: 'admin-table-icon'
-          %td= link_to (fa_icon "trash-o"), [:admin, page], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'admin-table-icon'
+          %td.admin-table-center= link_to (fa_icon "eye"),  page_path(page), target: '_blank', class: 'admin-table-icon'
+          %td.admin-table-center= link_to (fa_icon "pencil"), edit_admin_page_path(page), class: 'admin-table-icon'
+          %td.admin-table-center= link_to (fa_icon "trash-o"), [:admin, page], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'admin-table-icon'
 
   %br

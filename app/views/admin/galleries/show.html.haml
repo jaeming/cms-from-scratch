@@ -1,9 +1,21 @@
-%h3
-  = @gallery.title
-%small
+.admin-container
+  %h3.admin-title__small
+    = link_to (fa_icon "file-image-o", text: 'Galleries'), admin_galleries_path
+    &nbsp;>&nbsp;#{@gallery.title}
+    = link_to (fa_icon "pencil"), edit_admin_gallery_path(@gallery), class: 'admin-table-icon'
   = @gallery.description
-  = link_to 'Add Photos', new_admin_gallery_photo_post_path(@gallery) 
-  = link_to 'Edit Title/Description', edit_admin_gallery_path(@gallery)
-  = link_to 'Destroy Gallery', [:admin, @gallery], :method => :delete, :data => { :confirm => 'Are you sure?' }
+  = link_to (fa_icon "pencil"), edit_admin_gallery_path(@gallery), class: 'admin-table-icon'
   %hr
-= render partial: 'photos'
+  = link_to 'Add Photos', new_admin_gallery_photo_post_path(@gallery), class: "admin-button admin-button__blue admin-button__large"
+  %br &nbsp;
+  %table.admin-table
+    %thead
+      %tr
+        %th
+        %th Title
+        %th Description
+        %th.admin-table-center Show
+        %th.admin-table-center Edit
+        %th.admin-table-center Delete
+        %th.admin-table-center Featured
+    = render partial: 'photos'

@@ -1,2 +1,7 @@
-%h1 Editing Gallery
-= render 'form'
+.admin-container
+  %h3.admin-title__small
+    = link_to (fa_icon "file-image-o", text: 'Galleries'), admin_galleries_path
+    &nbsp;>&nbsp;
+    = link_to @gallery.title, admin_gallery_path(@gallery)
+    &nbsp;>&nbsp;Editing
+  = render 'form'

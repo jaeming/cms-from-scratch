@@ -14,6 +14,8 @@
   position: relative;
   text-align: center;
   text-transform: uppercase;
+  background-color: $color-blue;
+  color: #fff !important;
   font-size: 1rem;
   padding-top: 2px;
   width: 60px;
@@ -21,40 +23,34 @@
   line-height: 25px;
   border-radius: 2px;
   font-size: 0.75em;
-  color: black !important;
   text-decoration: none !important;
-  background-color: #fff;
   color: #fff;
   transition: ease 250ms;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   &:hover {
     background-color: $color-highlight;
   }
-  &__blue {
-    background-color: $color-blue;
-    color: #fff !important;
-  }
-  &__light-blue {
-    background-color: lighten($color-blue, 7%);
-  }
-  &__red {
-    background-color: lighten(#E74C3C, 30%);
-  }
   &__large {
+    @extend .admin-button;
     width: auto;
     height: 32px;
     font-size: 0.9rem;
     line-height: 32px;
     padding: 0 10px;
   }
-  &__round {
-    border-radius: 25px;
-  }
-  &__new-page {
+  &__new {
+    @extend .admin-button__large;
     vertical-align: middle;
     margin-left: 1rem;
   }
 }
+
+input[type=submit] {
+  @extend .admin-button__large;
+  border:0 none;
+  cursor:pointer;
+}
+
 .admin-table {
   width: 100%;
   background: #fff;
@@ -120,4 +116,10 @@
 }
 .admin-table-icon {
   font-size: 1.2rem;
+  text-decoration: none;
+  color: lighten(#5f6062, 0%);
+  transition: ease 250ms;
+  &:hover{
+    color: $color-highlight;
+  }
 }

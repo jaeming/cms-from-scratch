@@ -14,4 +14,8 @@ class Gallery < ActiveRecord::Base
     self.user
   end
 
+  def thumb
+    self.photos.first.image.thumb
+  end
+
 end

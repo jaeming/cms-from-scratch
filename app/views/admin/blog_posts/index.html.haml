@@ -1,7 +1,7 @@
 .admin-container
   %h2.admin-title
     = fa_icon "file-o", text: 'Blog'
-    = link_to 'New Blog Post', new_admin_blog_post_path, class: "admin-button admin-button__blue admin-button__large admin-button__new-page"
+    = link_to 'New Blog Post', new_admin_blog_post_path, class: "admin-button__new"
   %table.admin-table
     %thead
       %tr
@@ -9,9 +9,9 @@
         %th Author
         %th Tags
         %th Created
-        %th Show
-        %th Edit
-        %th Delete
+        %th.admin-table-center Show
+        %th.admin-table-center Edit
+        %th.admin-table-center Delete
 
     %tbody
       - @blog_posts.each do |blog_post|
@@ -20,6 +20,6 @@
           %td= 'add Author'
           %td= raw tag_links(blog_post.all_tags)
           %td #{time_ago_in_words(blog_post.created_at)} ago
-          %td= link_to (fa_icon "eye"), blog_post_path(blog_post), target: "_blank", class: 'admin-table-icon'
-          %td= link_to (fa_icon "pencil"), edit_admin_blog_post_path(blog_post), class: 'admin-table-icon'
-          %td= link_to (fa_icon "trash-o"), [:admin, blog_post], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'admin-table-icon'
+          %td.admin-table-center= link_to (fa_icon "eye"), blog_post_path(blog_post), target: "_blank", class: 'admin-table-icon'
+          %td.admin-table-center= link_to (fa_icon "pencil"), edit_admin_blog_post_path(blog_post), class: 'admin-table-icon'
+          %td.admin-table-center= link_to (fa_icon "trash-o"), [:admin, blog_post], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'admin-table-icon'
