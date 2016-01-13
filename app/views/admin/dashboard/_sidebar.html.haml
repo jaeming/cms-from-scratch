@@ -4,7 +4,7 @@
     .sidebar-user-image
       = image_tag current_user.profile_avatar, class: 'user-avatar'
     = link_to (fa_icon "user", text: 'Profile Settings'), admin_user_path(current_user)
-    = link_to (fa_icon "wrench", text: 'Site Settings'), "#"
+    = link_to (fa_icon "wrench", text: 'Site Settings'), admin_settings_path
     = link_to (fa_icon "sign-out", text: 'Sign Out'), sign_out_path, method: :delete, data: { confirm: 'Are you sure?' }
   .sidebar-nav
     = link_to (fa_icon "tachometer", text: 'Dashboard'), admin_root_path, class: "admin-nav-dashboard"
