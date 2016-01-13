@@ -23,7 +23,8 @@ Rails.application.routes.draw do
     end
     resources :tags
     resources :users
-    resources :settings, only: [:index, :show, :update]
+    resources :settings, only: [:index, :show, :edit, :update]
+    resources :navigations
     get 'dashboard/index'
     root to: "dashboard#index"
   end
