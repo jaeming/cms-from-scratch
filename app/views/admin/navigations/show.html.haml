@@ -1,0 +1,14 @@
+%p
+  Link Title:
+  = navigation.title
+%p
+  Link:
+  = navigation.link
+%p
+  Order:
+  = navigation.order
+%p
+  Open in new tab?
+  = navigation.new_tab
+= link_to 'edit Link', edit_admin_navigation_path(navigation)
+%hr

@@ -1,0 +1,5 @@
+%h3
+  = @setting.site_title
+%p
+  = @setting.site_description
+= link_to 'Edit site title/description', edit_admin_setting_path(@setting)

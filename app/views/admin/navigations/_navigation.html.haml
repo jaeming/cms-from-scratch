@@ -1,0 +1,17 @@
+%p
+  Link Title:
+  = navigation.title
+%p
+  Link:
+  = navigation.link
+%p
+  Order:
+  = navigation.order
+%p
+  Open in new tab?
+  = navigation.new_tab
+%p
+  = link_to 'Edit', edit_admin_navigation_path(navigation)
+%p
+  = link_to 'Destroy', [:admin, navigation], :method => :delete, :data => { :confirm => 'Are you sure?' }
+%hr

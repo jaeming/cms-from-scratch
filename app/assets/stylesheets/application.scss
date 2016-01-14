@@ -63,7 +63,4 @@ body {
 //ADMIN
 @import 'dashboard';
 @import 'pages';
-
-.admin-table-center {
-  text-align: center !important;
-}
+@import 'admin/navigations'

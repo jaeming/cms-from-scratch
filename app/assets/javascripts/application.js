@@ -15,3 +15,7 @@
 //= require ckeditor/config
 //= require ckeditor/init
 //= require_tree .
+
+$(window).on('page:change', function() {
+  alert('yolo')
+})
