@@ -1,11 +1,8 @@
-%hr
-%p
-  = user.name
-%p
-  = user.email
-%p
-  = image_tag user.avatar
-= link_to 'show user', admin_user_path(user)
-%br  
-= link_to 'edit user', edit_admin_user_path(user)
-%hr
+%tbody
+  %tr
+    %td
+      =image_tag user.avatar.thumb
+    %td= user.name
+    %td= user.email
+    %td.admin-table-center= link_to (fa_icon "eye"), admin_user_path(user), class: 'admin-table-icon'
+    %td.admin-table-center= link_to (fa_icon "pencil"), edit_admin_user_path(user), class: 'admin-table-icon'

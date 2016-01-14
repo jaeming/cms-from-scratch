@@ -8,5 +8,5 @@
           =image_tag gallery.thumb
     %td= pluralize(gallery.photos.length, 'photo')
     %td= link_to gallery.title, admin_gallery_path(gallery)
-    %td.admin-table-center= link_to (fa_icon "pencil"), admin_gallery_path(gallery)
+    %td.admin-table-center= link_to (fa_icon "pencil"), admin_gallery_path(gallery), class: 'admin-table-icon'
     %td.admin-table-center= link_to (fa_icon "trash-o"), [:admin, gallery], :method => :delete, :data => {:confirm => 'Are you sure?'}, class: 'admin-table-icon'

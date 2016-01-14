@@ -1,4 +1,14 @@
-%h3
-  Users
-%p
-  = render @users
+.admin-container
+  %h2.admin-title
+    = fa_icon "user-plus", text: 'Users'
+    = link_to 'Add User', new_admin_gallery_path, class: "admin-button__new"
+  %br
+  %table.admin-table
+    %thead
+      %tr
+        %th
+        %th Name
+        %th Email
+        %th.admin-table-center Show
+        %th.admin-table-center Edit
+    = render @users

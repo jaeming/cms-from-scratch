@@ -123,3 +123,39 @@ input[type=submit] {
     color: $color-highlight;
   }
 }
+.admin-icon {
+  text-decoration: none;
+  color: lighten(#5f6062, 0%);
+  transition: ease 250ms;
+  &:hover{
+    color: $color-highlight;
+  }
+}
+
+//ADMIN FORMS
+
+.pure-form-aligned {
+  margin-bottom: 2rem!important;
+}
+.pure-control-group {
+  margin-bottom: 2rem!important;
+}
+.admin-form-card {
+  background: #fff;
+  padding: 2rem 1rem 0.01rem 1rem;
+  max-width: 40rem;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  label {
+    color: darken($color-grey, 20%);
+  }
+  &__view-image {
+    @extend .admin-form-card;
+    line-height: 1.5rem;
+  }
+}
+.save-button-centered {
+  text-align: center;
+}
+.admin-edit-image {
+  padding: 1rem 0 0 7rem;
+}

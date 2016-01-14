@@ -1,2 +1,5 @@
-%h1 New Blog Post
-= render 'form'
+.admin-container
+  %h3.admin-title__small
+    = link_to (fa_icon "book", text: 'Blog Post'), admin_blog_posts_path
+    &nbsp;>&nbsp;New
+  = render 'form'

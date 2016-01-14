@@ -1,3 +1,6 @@
-%h1 New Tag
+.admin-container
+  %h3.admin-title__small
+    = link_to (fa_icon "Tags", text: 'Tags'), admin_tags_path
+    &nbsp;>&nbsp;New
 
-= render 'form'
+  = render 'form'

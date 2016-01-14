@@ -1,5 +1,8 @@
-%h1 Editing page
+.admin-container
+  %h3.admin-title__small
+    = link_to (fa_icon "file-o", text: 'Pages'), admin_pages_path
+    &nbsp;>&nbsp;Edit
 
-= render 'form'
+  = render 'form'
 
-= link_to 'Show', @page
+  = link_to (fa_icon "eye", text:'View'), @page, class: 'admin-icon'

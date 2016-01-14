@@ -1,4 +1,5 @@
-%p
-  = tag.topic
-  = link_to 'Edit', edit_admin_tag_path(tag)
-  = link_to 'Destroy', [:admin, tag], :method => :delete, :data => { :confirm => 'Are you sure?' }
+%tbody
+  %tr
+    %td= tag.topic
+    %td.admin-table-center= link_to (fa_icon "pencil"), edit_admin_tag_path(tag), class: 'admin-table-icon'
+    %td.admin-table-center= link_to (fa_icon "trash-o"), [:admin, tag], :method => :delete, :data => { :confirm => 'Are you sure?'}, class: 'admin-table-icon'

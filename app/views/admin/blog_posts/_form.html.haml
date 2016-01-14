@@ -1,18 +1,19 @@
-= form_for [:admin, @blog_post] do |f|
+= form_for [:admin, @blog_post], html: {class: "pure-form"} do |f|
   - if @blog_post.errors.any?
     #error_explanation
       %h2= "#{pluralize(@blog_post.errors.count, "error")} prohibited this page from being saved:"
       %ul
         - @blog_post.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :body
-    = f.cktext_area :body, :class => 'someclass'
-  .field
-    = f.label 'tags'
-    = f.text_field :all_tags, placeholder: "Tags"
-  .actions
-    = f.submit 'Save'
+  %fieldset
+    .pure-control-group
+      = f.label :title
+      = f.text_field :title, size: "60x1"
+    .pure-control-group
+      = f.label :body
+      = f.cktext_area :body, :class => 'someclass'
+    .pure-control-group
+      = f.label 'tags'
+      = f.text_field :all_tags, placeholder: "Tags", size: "60x1"
+    .actions
+      = f.submit 'Save', class: "admin-button__large"

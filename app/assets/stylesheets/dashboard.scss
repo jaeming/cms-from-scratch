@@ -2,10 +2,6 @@
 .admin-nav-active {
   background: #eeeded;
 }
-.admin-content {
-  background: #eeeded;
-  height: 100vh;
-}
 
 .sidebar {
   font-family: $font-general;
@@ -16,6 +12,7 @@
   top: 0;
   left: 0;
   background: #fff;
+  z-index: 100;
   a {
     display: block;
     text-decoration: none;
@@ -64,6 +61,16 @@
 .admin-content {
   margin-left: 17rem;
   padding: 1rem;
+  position: relative;
+  z-index: 100;
+}
+.admin-background {
+  background-color: #eeeded;
+  top: 0;
+  left: 0;
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 //MAIN DASHBOARD

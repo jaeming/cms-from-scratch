@@ -1,2 +1,5 @@
-%h1 New Gallery
-= render 'form'
+.admin-container
+  %h3.admin-title__small
+    = link_to (fa_icon "file-image-o", text: 'Galleries'), admin_galleries_path
+    &nbsp;>&nbsp;New
+  = render 'form'

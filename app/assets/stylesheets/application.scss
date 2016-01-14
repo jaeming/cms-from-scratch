@@ -2,6 +2,8 @@
 @import "font-awesome";
 @import 'jeet';
 @import 'breakpoint';
+@import 'forms';
+
 
 
 
@@ -27,6 +29,9 @@ $font-general: 'Roboto', sans-serif;
 
 strong {
   font-weight: 700;
+}
+body {
+  font-family: $font-general;
 }
 
 
