@@ -1,1 +1,5 @@
-= render partial: 'form'
+.admin-container
+  %h3.admin-title__small
+    = link_to (fa_icon "user-plus", text: 'Users'), admin_users_path
+    &nbsp;>&nbsp;Edit
+  = render partial: 'form'

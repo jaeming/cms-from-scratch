@@ -1,20 +1,22 @@
-= form_for [:admin, @user] do |f|
-  - if @user.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this page from being saved:"
-      %ul
-        - @user.errors.full_messages.each do |msg|
-          %li= msg
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :email
-    = f.text_field :email, :class => 'someclass'
-  .field
-    = f.label :avatar
-    = f.file_field :avatar, placeholder: "avatar"
-    = f.hidden_field :avatar_cache
-    = image_tag @user.avatar
-  .actions
-    = f.submit 'Save'
+.admin-form-card
+  = form_for [:admin, @user], html: {class: "pure-form pure-form-aligned"} do |f|
+    - if @user.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@user.errors.count, "error")} prohibited this page from being saved:"
+        %ul
+          - @user.errors.full_messages.each do |msg|
+            %li= msg
+    %fieldset
+      .pure-control-group
+        = f.label :name
+        = f.text_field :name, size: '60x1'
+      .pure-control-group
+        = f.label :email
+        = f.text_field :email, size: '60x1'
+      .pure-control-group
+        = f.label :avatar
+        = f.file_field :avatar, placeholder: "avatar"
+        = f.hidden_field :avatar_cache
+        = image_tag @user.avatar, class: "admin-edit-image"
+      .actions.save-button-centered
+        = f.submit 'Save', class: "admin-button__large"
