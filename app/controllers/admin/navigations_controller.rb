@@ -15,6 +15,7 @@ class Admin::NavigationsController < ApplicationController
 
   def create
     @navigation = Navigation.create!(nav_params)
+    Navigation.reorder_links(:desc)
     redirect_to admin_navigations_url
   end
 
@@ -22,12 +23,16 @@ class Admin::NavigationsController < ApplicationController
   end
 
   def update
+    prev_order = @navigation.order
+    proposed_order = nav_params[:order]
     @navigation.update!(nav_params)
+    Navigation.reorder_by_direction(prev_order, proposed_order)
     redirect_to admin_navigations_url
   end
 
   def destroy
     @navigation.destroy!
+    Navigation.reorder_links(:asc)
     redirect_to admin_navigations_url
   end
 
