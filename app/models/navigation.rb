@@ -4,7 +4,8 @@ class Navigation < ActiveRecord::Base
 
 
   def self.reorder_by_direction(prev, proposed)
-    prev > proposed.to_i ? reorder_links(:desc) : reorder_links(:asc)
+    direction = (prev > proposed.to_i) ? (:desc) : (:asc)
+    reorder_links(direction)
   end
 
   def self.reorder_links(direction)

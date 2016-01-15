@@ -16,8 +16,6 @@
     = f.number_field :order, :class => 'someclass'
   .field
     = f.label 'Link Opens in new tab?'
-    = f.select(:new_tab) do
-      - ([['Yes', 1], ['No', 2]]).each do |c|
-        = content_tag(:option, c.first, value: c.last)
+    = f.select :new_tab, [['no', false], ['yes', true]]
   .actions
     = f.submit 'Save'
