@@ -8,9 +8,28 @@
   .field
     = f.label :title
     = f.text_field :title
-  .field
-    = f.label :link
+  %hr
+  = f.label "link:"
+  #nav-link-page
+    %select
+      %option>
+        pages
+      %option>
+        joke
+      %option>
+        poem
+    %br
+    %br
+    .link-toggle-external
+      add external link
+  #nav-link-external
     = f.text_field :link, :class => 'someclass'
+    %br
+    %br
+    .link-toggle-page
+      add internal page
+  %hr
+  %br
   .field
     = f.label :order
     = f.number_field :order, :class => 'someclass'
@@ -19,3 +38,14 @@
     = f.select :new_tab, [['no', false], ['yes', true]]
   .actions
     = f.submit 'Save'
+
+:javascript
+  $('#nav-link-external').hide();
+  $('.link-toggle-external').click(function() {
+    $('#nav-link-page').hide();
+    $('#nav-link-external').show();
+  });
+  $('.link-toggle-page').click(function() {
+    $('#nav-link-external').hide();
+    $('#nav-link-page').show();
+  });
