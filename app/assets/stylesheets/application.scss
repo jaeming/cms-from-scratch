@@ -21,7 +21,7 @@ $color-grey: #a7a7a7;
 //added 272px to compensate for sidebar. If sidebar gets reduces those breakpoints needs to change back to original.
 $breakpoint-desktop: max-width 1552px;
 $breakpoint-tablet: max-width 1008px;
-$breakpoint-mobile: max-width 752px;
+$breakpoint-mobile: max-width 796px;
 
 //TYPOGRAPHY
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,900);
@@ -48,8 +48,12 @@ body {
 }
 
 .columns-3 {
-  @include column(1/3);
+  @include column(1/3, $cycle: 3);
+  margin-bottom: 2rem;
   @include breakpoint($breakpoint-tablet) {
+    @include column(1/2, $uncycle: 3, $cycle: 2);
+  }
+  @include breakpoint($breakpoint-mobile) {
     @include stack();
     margin-top: 2rem;
     margin-bottom: 3rem;
