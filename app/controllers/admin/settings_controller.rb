@@ -1,4 +1,4 @@
-class Admin::SettingsController < ApplicationController
+class Admin::SettingsController < Admin::DashboardController 
   before_filter :authorize_admin
   before_filter :find_or_initilize_settings
 

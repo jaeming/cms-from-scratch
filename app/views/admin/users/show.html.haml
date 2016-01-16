@@ -4,13 +4,13 @@
     &nbsp;>&nbsp;View
   .admin-form-card__view-image
     %p
-      name:
+      %strong Name:
       = @user.name
     %p
-      email:
+      %strong Email:
       = @user.email
     %p
-      avatar:
-      = image_tag @user.avatar
-    %p
+      %strong Avatar:
+      = image_tag @user.avatar.thumb
+    %p.icons-extra-space
       = link_to (fa_icon "pencil", text:'Edit'), edit_admin_user_path(@user), class: 'admin-icon'

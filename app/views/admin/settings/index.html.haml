@@ -1,3 +1,6 @@
-= render template: 'admin/settings/show'
-%hr
-= render template: 'admin/navigations/index'
+.admin-container
+  %h2.admin-title
+    = fa_icon "wrench", text: 'Site settings'
+  = render template: 'admin/settings/show'
+  %hr
+  = render template: 'admin/navigations/index'

@@ -1,4 +1,4 @@
-class Admin::NavigationsController < ApplicationController
+class Admin::NavigationsController < Admin::DashboardController 
   before_filter :authorize_admin
   before_action :set_navigation, only: [:show, :edit, :update, :destroy]
 

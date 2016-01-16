@@ -11,15 +11,15 @@
     %p
       = image_tag @photo_post.image.large
     %p
-      %b Description:
+      %strong Description:
       = @photo_post.description
     %p
-      %b Title:
+      %strong Title:
       = @photo_post.title
     %p
-      %b Published:
+      %strong Published:
       = @photo_post.published
-    %p
+    %p.icons-extra-space
       = link_to (fa_icon "pencil", text:'Edit'), edit_admin_gallery_photo_post_path(@gallery, @photo_post), class: 'admin-icon'
       &nbsp;&nbsp;&nbsp;&nbsp;
       = link_to (fa_icon "trash-o", text:'Delete'), [:admin, @gallery, @photo_post], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'admin-icon'
