@@ -17,7 +17,7 @@
       - @blog_posts.each do |blog_post|
         %tr
           %td= blog_post.title
-          %td= 'add Author'
+          %td= blog_post.author
           %td= raw tag_links(blog_post.all_tags)
           %td #{time_ago_in_words(blog_post.created_at)} ago
           %td.admin-table-center= link_to (fa_icon "eye"), blog_post_path(blog_post), target: "_blank", class: 'admin-table-icon'

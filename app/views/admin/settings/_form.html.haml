@@ -1,9 +1,10 @@
-= form_for [:admin, @setting] do |f|
-  .field
-    = f.label :site_title
-    = f.text_field :site_title
-  .field
-    = f.label :site_description
-    = f.text_area :site_description    
-  .actions
-    = f.submit 'Save'
+.admin-form-card
+  = form_for [:admin, @setting] do |f|
+    .field
+      = f.label :site_title
+      = f.text_field :site_title
+    .field
+      = f.label :site_description
+      = f.text_area :site_description
+    .actions
+      = f.submit 'Save'

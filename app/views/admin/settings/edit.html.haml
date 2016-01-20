@@ -1,1 +1,5 @@
-= render 'form'
+.admin-container
+  %h3.admin-title__small
+    = link_to (fa_icon "wrench", text: 'Site Settings'), admin_settings_path
+    &nbsp;>&nbsp;Edit Title &amp; Description
+  = render 'form'

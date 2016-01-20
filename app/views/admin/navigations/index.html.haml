@@ -1,6 +1,15 @@
-%h3 Navigation settings
+%h3.admin-title__paragraph
+  Navigation settings
+  = link_to 'New Navigation Link', new_admin_navigation_path, class: "admin-button__new"
 %br
-= link_to 'New Navigation Link', new_admin_navigation_path
-%br
-%hr
-= render @navigations
+%table.admin-table
+  %thead
+    %tr
+      %th Title
+      %th Link
+      %th Order
+      %th Open in new tab?
+      %th.admin-table-center Edit
+      %th.admin-table-center Delete
+  %tbody
+    = render @navigations

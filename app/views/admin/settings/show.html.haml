@@ -1,5 +1,6 @@
-%h3
+%h3.admin-title__paragraph
   = @setting.site_title
+  = link_to 'Edit title & description', edit_admin_setting_path(@setting), class: "admin-button__new"
 %p
   = @setting.site_description
-= link_to 'Edit site title/description', edit_admin_setting_path(@setting)
+%p.icons-extra-space
