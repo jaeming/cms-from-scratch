@@ -23,6 +23,6 @@ class Admin::UsersController < Admin::DashboardController
     end
 
 		def user_params
-			params.require(:user).permit(:name, :avatar)
+			params.require(:user).permit(:name, :avatar, :password)
 		end
 end

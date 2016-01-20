@@ -9,10 +9,13 @@
     %fieldset
       .pure-control-group
         = f.label :name
-        = f.text_field :name, size: '60x1'
+        = f.text_field :name
       .pure-control-group
         = f.label :email
-        = f.text_field :email, size: '60x1'
+        = f.text_field :email
+      .pure-control-group
+        = f.label :password
+        = f.text_field :password, placeholder: "******"
       .pure-control-group
         = f.label :avatar
         = f.file_field :avatar, placeholder: "avatar"
