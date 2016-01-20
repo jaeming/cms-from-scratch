@@ -9,6 +9,16 @@ class Admin::UsersController < Admin::DashboardController
   def show
   end
 
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.create(user_params)
+    flash[:notice] = "User Created"
+    redirect_to admin_users_path
+  end
+
   def edit
   end
 
@@ -33,6 +43,6 @@ class Admin::UsersController < Admin::DashboardController
     end
 
 		def user_params
-			params.require(:user).permit(:name, :avatar, :password)
+			params.require(:user).permit(:name, :avatar, :password, :email)
 		end
 end
