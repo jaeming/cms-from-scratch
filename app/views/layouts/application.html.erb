@@ -8,12 +8,16 @@
 <body>
   <div id="header">
   <%= render "sidebar"%>
-  <div id="flash">
-    <% flash.each do |key, value| -%>
-      <div id="flash_<%= key %>"><%=h value %></div>
-    <% end %>
+  <% if flash[:notice] %>
+    <div class="notifier">
+      <div class="notice"><%= flash[:notice] %></div>
+    </div>
+  <% end %>
+  <% if flash[:error] %>
+  <div class="notifier">
+    <div class="error"><%= flash[:error] %></div>
   </div>
+  <% end %>
   <%= render "content" %>
-
 </body>
 </html>

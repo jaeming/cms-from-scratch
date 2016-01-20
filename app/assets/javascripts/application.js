@@ -16,3 +16,8 @@
 //= require ckeditor/init
 //= require_self
 //= require_tree .
+$(function() {
+  $('.notifier').delay(500).fadeIn('normal', function() {
+    $(this).delay(2000).fadeOut('slow');
+  });
+});
