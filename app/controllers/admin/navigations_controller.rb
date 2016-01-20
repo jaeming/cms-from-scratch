@@ -11,21 +11,35 @@ class Admin::NavigationsController < Admin::DashboardController
 
   def new
     @navigation = Navigation.new
+    @pages = Page.all
   end
 
   def create
-    @navigation = Navigation.create!(nav_params)
+    if is_number? params[:link]
+      page = Page.find(params[:link])
+      link = page_url(page)
+      @navigation = Navigation.create!(nav_params.except(:link).merge(link: link))
+    else
+      @navigation = Navigation.create!(nav_params)
+    end
     Navigation.reorder_links(:desc)
     redirect_to admin_settings_url
   end
 
   def edit
+    @pages = Page.all
   end
 
   def update
     prev_order = @navigation.order
     proposed_order = nav_params[:order]
-    @navigation.update!(nav_params)
+    if is_number? params[:link]
+      page = Page.find(params[:link])
+      link = page_url(page)
+      @navigation.update!(nav_params.except(:link).merge(link: link))
+    else
+      @navigation.update!(nav_params)
+    end
     Navigation.reorder_by_direction(prev_order, proposed_order)
     redirect_to admin_settings_url
   end

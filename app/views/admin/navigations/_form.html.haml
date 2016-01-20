@@ -9,21 +9,15 @@
     = f.label :title
     = f.text_field :title
   %hr
-  = f.label "link:"
+  = f.label "choose a page to link to:"
   #nav-link-page
-    %select
-      %option>
-        pages
-      %option>
-        joke
-      %option>
-        poem
+    = select_tag "link", options_from_collection_for_select(@pages, "id", "title"), include_blank: "#{@navigation.link}", class: 'link-page-select'
     %br
     %br
     .link-toggle-external
       add external link
   #nav-link-external
-    = f.text_field :link, :class => 'someclass'
+    = f.text_field :link, :class => 'link-external-input'
     %br
     %br
     .link-toggle-page
@@ -41,11 +35,17 @@
 
 :javascript
   $('#nav-link-external').hide();
+  $('.link-external-input').attr("disabled", true);
   $('.link-toggle-external').click(function() {
     $('#nav-link-page').hide();
     $('#nav-link-external').show();
+    $('.link-page-select').attr("disabled", true);
+    $('.link-external-input').attr("disabled", false);
+
   });
   $('.link-toggle-page').click(function() {
     $('#nav-link-external').hide();
     $('#nav-link-page').show();
+    $('.link-external-input').attr("disabled", true);
+    $('.link-page-select').attr("disabled", false);
   });
