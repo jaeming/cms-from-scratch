@@ -1,7 +1,8 @@
 .admin-container
   %h2.admin-title
     = fa_icon "user-plus", text: 'Users'
-    = link_to 'Add User', new_admin_user_path, class: "admin-button__new"
+    - if admin?
+      = link_to 'Add User', new_admin_user_path, class: "admin-button__new"
   %br
   %table.admin-table
     %thead
@@ -11,6 +12,7 @@
         %th Email
         %th.admin-table-center Show
         %th.admin-table-center Edit
-        %th.admin-table-center Delete
+        - if admin?
+          %th.admin-table-center Delete
     %tbody
       = render @users

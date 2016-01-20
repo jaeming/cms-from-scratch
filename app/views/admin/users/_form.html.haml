@@ -13,6 +13,10 @@
       .pure-control-group
         = f.label :email
         = f.text_field :email
+      - if admin?
+        .pure-control-group
+          = f.label :role
+          = f.select :role, [['Admin', 'admin'], ['Contributor', 'contributor']], include_blank: true
       .pure-control-group
         = f.label :password
         = f.text_field :password, placeholder: "******"

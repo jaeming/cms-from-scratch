@@ -5,4 +5,5 @@
   %td= user.email
   %td.admin-table-center= link_to (fa_icon "eye"), admin_user_path(user), class: 'admin-table-icon'
   %td.admin-table-center= link_to (fa_icon "pencil"), edit_admin_user_path(user), class: 'admin-table-icon'
-  %td.admin-table-center= link_to (fa_icon "trash-o"), [:admin, user], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'admin-table-icon'
+  - if admin?
+    %td.admin-table-center= link_to (fa_icon "trash-o"), [:admin, user], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'admin-table-icon'
