@@ -1,2 +1,5 @@
-%h3 New Navigation link
-= render 'form'
+.admin-container
+  %h3.admin-title__small
+    = link_to (fa_icon "wrench", text: 'Site Settings'), admin_settings_path
+    &nbsp;>&nbsp;New Navigation Link
+  = render 'form'
