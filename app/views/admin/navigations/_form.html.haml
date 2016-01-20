@@ -1,37 +1,42 @@
-= form_for [:admin, @navigation] do |f|
-  - if @navigation.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@navigation.errors.count, "error")} prohibited this page from being saved:"
-      %ul
-        - @navigation.errors.full_messages.each do |msg|
-          %li= msg
-  .field
-    = f.label :title
-    = f.text_field :title
-  %hr
-  = f.label "choose a page to link to:"
-  #nav-link-page
-    = select_tag "link", options_from_collection_for_select(@pages, "id", "title"), include_blank: "#{@navigation.link}", class: 'link-page-select'
-    %br
-    %br
-    .link-toggle-external
-      add external link
-  #nav-link-external
-    = f.text_field :link, :class => 'link-external-input'
-    %br
-    %br
-    .link-toggle-page
-      add internal page
-  %hr
-  %br
-  .field
-    = f.label :order
-    = f.number_field :order, :class => 'someclass'
-  .field
-    = f.label 'Link Opens in new tab?'
-    = f.select :new_tab, [['no', false], ['yes', true]]
-  .actions
-    = f.submit 'Save'
+.admin-form-card
+  = form_for [:admin, @navigation], html: {class: "pure-form pure-form-aligned"} do |f|
+    - if @navigation.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@navigation.errors.count, "error")} prohibited this page from being saved:"
+        %ul
+          - @navigation.errors.full_messages.each do |msg|
+            %li= msg
+    %fieldset
+      .pure-control-group
+        = f.label :title
+        = f.text_field :title, size: "40x1"
+      .pure-control-group
+        #nav-link-page
+          = f.label "select a page to link to:"
+          = select_tag "link", options_from_collection_for_select(@pages, "id", "title"), include_blank: "#{@navigation.link}", class: 'link-page-select'
+          %br
+          %br
+          .save-button-centered
+            .link-toggle-external
+              add external link
+        #nav-link-external
+          .pure-control-group
+            = f.label "add external link:"
+            = f.text_field :link, :class => 'link-external-input', size: "60x1"
+            %br
+            %br
+            .save-button-centered
+              .link-toggle-page
+                add internal page
+      %br
+      .pure-control-group
+        = f.label :order
+        = f.number_field :order, :class => 'someclass'
+      .pure-control-group
+        = f.label 'Link Opens in new tab?'
+        = f.select :new_tab, [['no', false], ['yes', true]]
+      .actions.save-button-centered
+        = f.submit 'Save'
 
 :javascript
   $('#nav-link-external').hide();
