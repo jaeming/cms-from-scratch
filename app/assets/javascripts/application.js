@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require ckeditor/config
 //= require ckeditor/init
+//= require smart_listing
 //= require_self
 //= require_tree .
 $(function() {

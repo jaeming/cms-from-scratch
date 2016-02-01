@@ -1,9 +1,14 @@
 class Admin::BlogPostsController < Admin::DashboardController
   before_action :authorize_user
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
+  include SmartListing::Helper::ControllerExtensions
+  helper  SmartListing::Helper
 
   def index
-    @blog_posts = BlogPost.all
+    @blog_posts = smart_listing_create :blog_posts,
+                                        BlogPost.all,
+                                        partial: "admin/blog_posts/listing",
+                                        default_sort: {id: "desc"}
   end
 
   def show

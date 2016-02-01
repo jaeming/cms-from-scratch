@@ -9,6 +9,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'ckeditor'
 gem 'truncate_html'
+gem "smart_listing"
 gem 'thin'
 gem "font-awesome-rails"
 gem 'jeet', :git => 'https://github.com/jaeming/jeet-rails.git'
