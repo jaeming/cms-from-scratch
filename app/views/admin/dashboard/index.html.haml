@@ -4,5 +4,5 @@
   %p
     Hello
     = succeed '!' do
-      %strong= current_user.name.capitalize || current_user.email
+      %strong= current_user.nickname
   = render partial: "dashboard_cards"

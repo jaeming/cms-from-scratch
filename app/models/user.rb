@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
     self.avatar.file ? self.avatar : "user-avatar.jpg"
   end
 
+  def nickname
+    (name || email.split('@')[0]).capitalize
+  end
+
 end
