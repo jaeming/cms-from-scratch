@@ -6,6 +6,7 @@
     %thead
       %tr
         %th Title
+        %th Status
         %th Tags
         %th.admin-table-center Show
         %th.admin-table-center Edit
@@ -15,6 +16,7 @@
       - @pages.each do |page|
         %tr
           %td= page.title
+          %td= status(page)          
           %td= raw tag_links(page.all_tags)
           %td.admin-table-center= link_to (fa_icon "eye"),  page_path(page), target: '_blank', class: 'admin-table-icon'
           %td.admin-table-center= link_to (fa_icon "pencil"), edit_admin_page_path(page), class: 'admin-table-icon'
