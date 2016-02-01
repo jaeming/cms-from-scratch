@@ -9,7 +9,7 @@ class BlogPost < ActiveRecord::Base
   scope :drafts, -> { where(draft: true) }
 
   def author
-    self.user.name || self.user.email
+    self.user.nickname
   end
 
 end

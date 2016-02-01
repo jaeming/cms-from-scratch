@@ -1,5 +1,7 @@
 require 'faker'
 
+admin = User.create!(email: "admin@admin.com", password: "secret", role: "admin")
+
 4.times do
   Page.create(
               title: Faker::Name.title,
@@ -17,19 +19,20 @@ end
   BlogPost.create(
               title: Faker::Name.title,
               body: Faker::Hipster.paragraph(2),
-              draft: true
+              draft: true,
+              user: admin
   )
   BlogPost.create(
               title: Faker::Name.title,
               body: Faker::Hipster.paragraph(1),
-              draft: false
+              draft: false,
+              user: admin
   )
 end
 
 pages = Page.all
 blog_posts = BlogPost.all
 
-admin = User.create!(email: "admin@admin.com", password: "secret", role: "admin")
 puts "A default admin was created with email: #{admin.email} and password: #{admin.password}"
 puts "#{pages.count} Pages were created"
 puts "#{blog_posts.count} Blog Posts were created"
