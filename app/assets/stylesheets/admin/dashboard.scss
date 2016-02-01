@@ -306,6 +306,13 @@ input[type=submit] {
   padding: 1rem 0 0 7rem;
 }
 
+.sortable {
+  color: #fff !important;
+}
+
+.sort {
+  white-space: nowrap;
+}
 
 //MAIN DASHBOARD CARDS
 @import "dashboard-cards";

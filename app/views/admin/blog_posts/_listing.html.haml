@@ -5,11 +5,19 @@
   %table.admin-table
     %thead
       %tr
-        %th= smart_listing.sortable "Title", "title"
-        %th= smart_listing.sortable "Author", "author"
-        %th= smart_listing.sortable "Status", "draft"
+        %th.sort
+          = smart_listing.sortable "Title", "title"
+          = fa_icon "sort"
+        %th.sort
+          = smart_listing.sortable "Author", "author"
+          = fa_icon "sort"
+        %th.sort
+          = smart_listing.sortable "Status", "draft"
+          = fa_icon "sort"
         %th Tags
-        %th= smart_listing.sortable "Created", "created_at"
+        %th.sort
+          = smart_listing.sortable "Created", "created_at"
+          = fa_icon "sort"
         %th.admin-table-center Show
         %th.admin-table-center Edit
         %th.admin-table-center Delete
