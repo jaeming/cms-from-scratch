@@ -41,6 +41,6 @@ class Admin::BlogPostsController < Admin::DashboardController
     end
 
     def blog_params
-      params.require(:blog_post).permit(:title, :body, :status, :feature_image, :author, :all_tags)
+      params.require(:blog_post).permit(:title, :body, :draft, :feature_image, :author, :all_tags)
     end
 end

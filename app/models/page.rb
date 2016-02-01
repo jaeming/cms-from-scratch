@@ -4,7 +4,7 @@ class Page < ActiveRecord::Base
   include Taggings
 
   default_scope { order('id DESC') }
-  scope :published, -> { where(published: true) }
-  scope :drafts, -> { where(published: false) }
+  scope :published, -> { where(draft: false) }
+  scope :drafts, -> { where(draft: true) }
 
 end

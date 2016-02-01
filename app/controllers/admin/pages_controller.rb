@@ -57,6 +57,6 @@ class Admin::PagesController < Admin::DashboardController
     end
 
     def page_params
-      params.require(:page).permit(:title, :body, :keywords, :all_tags)
+      params.require(:page).permit(:title, :body, :keywords, :all_tags, :draft)
     end
 end

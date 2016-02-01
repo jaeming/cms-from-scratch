@@ -11,17 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151229014631) do
+ActiveRecord::Schema.define(version: 20160201064835) do
 
   create_table "blog_posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
     t.string   "author"
     t.string   "feature_image"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.boolean  "published"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.integer  "user_id"
+    t.boolean  "draft",         default: false
   end
 
   add_index "blog_posts", ["user_id"], name: "index_blog_posts_on_user_id"
@@ -64,20 +64,20 @@ ActiveRecord::Schema.define(version: 20151229014631) do
   create_table "pages", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean  "published"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "draft",      default: false
   end
 
   create_table "photo_posts", force: :cascade do |t|
     t.string   "image"
     t.string   "description"
     t.string   "title"
-    t.boolean  "published"
     t.integer  "gallery_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "user_id"
+    t.boolean  "draft",       default: false
   end
 
   add_index "photo_posts", ["gallery_id"], name: "index_photo_posts_on_gallery_id"

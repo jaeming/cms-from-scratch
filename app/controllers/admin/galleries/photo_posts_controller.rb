@@ -44,6 +44,6 @@ class Admin::Galleries::PhotoPostsController < Admin::DashboardController
   private
 
     def photo_post_params
-      params.require(:photo_post).permit(:image, :description, :title, :published, :references)
+      params.require(:photo_post).permit(:image, :description, :title, :draft, :references)
     end
 end
