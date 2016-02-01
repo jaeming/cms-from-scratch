@@ -2,36 +2,39 @@
   %h2.admin-title
     = fa_icon "book", text: 'Blog'
     = link_to 'New Blog Post', new_admin_blog_post_path, class: "admin-button__new"
-  %table.admin-table
-    %thead
-      %tr
-        %th.sort
-          = smart_listing.sortable "Title", "title"
-          = fa_icon "sort"
-        %th.sort
-          = smart_listing.sortable "Author", "author"
-          = fa_icon "sort"
-        %th.sort
-          = smart_listing.sortable "Status", "draft"
-          = fa_icon "sort"
-        %th Tags
-        %th.sort
-          = smart_listing.sortable "Created", "created_at"
-          = fa_icon "sort"
-        %th.admin-table-center Show
-        %th.admin-table-center Edit
-        %th.admin-table-center Delete
-
-    %tbody
-      - smart_listing.collection.each do |blog_post|
+  - unless smart_listing.empty?
+    %table.admin-table
+      %thead
         %tr
-          %td= blog_post.title
-          %td= blog_post.author
-          %td= status(blog_post)
-          %td= raw tag_links(blog_post.all_tags)
-          %td #{time_ago_in_words(blog_post.created_at)} ago
-          %td.admin-table-center= link_to (fa_icon "eye"), blog_post_path(blog_post), target: "_blank", class: 'admin-table-icon'
-          %td.admin-table-center= link_to (fa_icon "pencil"), edit_admin_blog_post_path(blog_post), class: 'admin-table-icon'
-          %td.admin-table-center= link_to (fa_icon "trash-o"), [:admin, blog_post], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'admin-table-icon'
-  = smart_listing.paginate
-  = smart_listing.pagination_per_page_links
+          %th.sort
+            = smart_listing.sortable "Title", "title"
+            = fa_icon "sort"
+          %th.sort
+            = smart_listing.sortable "Author", "author"
+            = fa_icon "sort"
+          %th.sort
+            = smart_listing.sortable "Status", "draft"
+            = fa_icon "sort"
+          %th Tags
+          %th.sort
+            = smart_listing.sortable "Created", "created_at"
+            = fa_icon "sort"
+          %th.admin-table-center Show
+          %th.admin-table-center Edit
+          %th.admin-table-center Delete
+
+      %tbody
+        - smart_listing.collection.each do |blog_post|
+          %tr
+            %td= blog_post.title
+            %td= blog_post.author
+            %td= status(blog_post)
+            %td= raw tag_links(blog_post.all_tags)
+            %td #{time_ago_in_words(blog_post.created_at)} ago
+            %td.admin-table-center= link_to (fa_icon "eye"), blog_post_path(blog_post), target: "_blank", class: 'admin-table-icon'
+            %td.admin-table-center= link_to (fa_icon "pencil"), edit_admin_blog_post_path(blog_post), class: 'admin-table-icon'
+            %td.admin-table-center= link_to (fa_icon "trash-o"), [:admin, blog_post], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'admin-table-icon'
+    = smart_listing.paginate
+    = smart_listing.pagination_per_page_links
+  - else
+    %p No records!    
