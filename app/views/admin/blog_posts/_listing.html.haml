@@ -33,3 +33,5 @@
           %td.admin-table-center= link_to (fa_icon "eye"), blog_post_path(blog_post), target: "_blank", class: 'admin-table-icon'
           %td.admin-table-center= link_to (fa_icon "pencil"), edit_admin_blog_post_path(blog_post), class: 'admin-table-icon'
           %td.admin-table-center= link_to (fa_icon "trash-o"), [:admin, blog_post], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'admin-table-icon'
+  = smart_listing.paginate
+  = smart_listing.pagination_per_page_links

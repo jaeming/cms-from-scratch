@@ -1,0 +1,56 @@
+//COLOURS
+$color-text: #fff;
+$color-dark: #054A8E;
+$color-blue: #0086CB;
+$color-light: #00D4CB;
+$color-highlight: #50D2A0;
+$color-white: #fff;
+$color-black: #000;
+$color-grey: #a7a7a7;
+
+//BREAKPOINT SIZES (MEDIA QUERIES)
+//added 272px to compensate for sidebar. If sidebar gets reduces those breakpoints needs to change back to original.
+$breakpoint-desktop: max-width 1552px;
+$breakpoint-tablet: max-width 1008px;
+$breakpoint-mobile: max-width 796px;
+
+//TYPOGRAPHY
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,900);
+$font-general: 'Roboto', sans-serif;
+
+strong {
+  font-weight: 700;
+}
+body {
+  font-family: $font-general;
+}
+
+.text-center {
+  text-align: center;
+}
+
+//COLUMNS
+
+.columns-2 {
+  @include column(1/2);
+  @include breakpoint($breakpoint-tablet) {
+    @include stack();
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+}
+
+.columns-3 {
+  @include column(1/3, $cycle: 3);
+  margin-bottom: 3rem;
+  @include breakpoint($breakpoint-tablet) {
+    @include column(1/2, $uncycle: 3, $cycle: 2);
+  }
+  @include breakpoint($breakpoint-mobile) {
+    @include stack();
+  }
+}
+
+#flash {
+  display: none;
+}
