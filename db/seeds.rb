@@ -15,7 +15,7 @@ admin = User.create!(email: "admin@admin.com", password: "secret", role: "admin"
   )
 end
 
-6.times do
+12.times do
   BlogPost.create(
               title: Faker::Name.title,
               body: Faker::Hipster.paragraph(2),
