@@ -12,6 +12,6 @@ class PhotoPost < ActiveRecord::Base
   end
 
   def featured?
-    false
+    self.gallery.featured_id == self.id
   end
 end

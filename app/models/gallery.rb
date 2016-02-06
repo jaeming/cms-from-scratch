@@ -18,4 +18,8 @@ class Gallery < ActiveRecord::Base
     self.photos.first.image.thumb
   end
 
+  def feature
+    PhotoPost.find_by(id: self.featured_id) || self.photo_posts.first 
+  end
+
 end

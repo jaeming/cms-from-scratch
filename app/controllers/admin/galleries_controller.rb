@@ -40,6 +40,6 @@ class Admin::GalleriesController < Admin::DashboardController
     end
 
     def gallery_params
-      params.require(:gallery).permit(:title, :description)
+      params.require(:gallery).permit(:title, :description, :featured_id)
     end
 end

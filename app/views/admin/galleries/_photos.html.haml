@@ -8,7 +8,6 @@
       %td.admin-table-center= link_to (fa_icon "pencil"), edit_admin_gallery_photo_post_path(@gallery, photo), class: 'admin-table-icon'
       %td.admin-table-center= link_to (fa_icon "trash-o"), [:admin, @gallery, photo], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'admin-table-icon'
       %td.admin-table-center
-        -if photo.featured?
-          =(fa_icon "check-square-o")
-        -else
-          =(fa_icon "square-o")
+        = form_for([:admin, @gallery], method: "patch") do |f|
+          = f.hidden_field :featured_id, value: photo.id
+          = check_box_tag(:featured_id, photo.id, photo.featured?, :onclick => 'this.form.submit();')
